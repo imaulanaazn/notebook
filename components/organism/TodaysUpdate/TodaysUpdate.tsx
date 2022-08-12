@@ -9,12 +9,12 @@ export default function TodaysUpdate() {
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Today's" secondTitle="Update" />
       <Stack direction="column" />
       <Stack direction="row" className="flex-container" sx={{ gap: '1.5rem' }}>
-        <TodaysUpdateBox total={Math.floor(Math.random() * 20)} statsTitle="New Posts" />
-        <TodaysUpdateBox total={Math.floor(Math.random() * 100)} statsTitle="Total Visitors" />
+        <TodaysUpdateBox total={21} statsTitle="New Posts" />
+        <TodaysUpdateBox total={74} statsTitle="Total Visitors" />
       </Stack>
       <Stack direction="row" className="flex-container" sx={{ gap: '1.5rem', marginTop: '1.5rem' }}>
-        <TodaysUpdateBox total={Math.floor(Math.random() * 20)} statsTitle="New Subscribers" />
-        <TodaysUpdateBox total={Math.floor(Math.random() * 100)} statsTitle="Blog Read" />
+        <TodaysUpdateBox total={14} statsTitle="New Subscribers" />
+        <TodaysUpdateBox total={87} statsTitle="Blog Read" />
       </Stack>
     </Box>
   );

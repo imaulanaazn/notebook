@@ -43,3 +43,4 @@ const Home: NextPage = () => (
 );
 
 export default Home;
+// https://newsapi.org/v2/everything?q=featured&from=2022-08-01&apiKey=67e3e73e223f4b1ca32ee2bb447ccd93

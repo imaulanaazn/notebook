@@ -13,7 +13,7 @@ export default function Categories() {
         }}
       >
         <Typography sx={{ fontSize: '0.9rem' }}>Lifestyle</Typography>
-        <Typography sx={{ fontSize: '0.9rem' }}>{Math.floor(Math.random() * 10)}</Typography>
+        <Typography sx={{ fontSize: '0.9rem' }}>{8}</Typography>
       </Stack>
       <Stack
         direction="row"
@@ -22,7 +22,7 @@ export default function Categories() {
         }}
       >
         <Typography sx={{ fontSize: '0.9rem' }}>Travel</Typography>
-        <Typography sx={{ fontSize: '0.9rem' }}>{Math.floor(Math.random() * 10)}</Typography>
+        <Typography sx={{ fontSize: '0.9rem' }}>{10}</Typography>
       </Stack>
       <Stack
         direction="row"
@@ -31,7 +31,7 @@ export default function Categories() {
         }}
       >
         <Typography sx={{ fontSize: '0.9rem' }}>Food</Typography>
-        <Typography sx={{ fontSize: '0.9rem' }}>{Math.floor(Math.random() * 10)}</Typography>
+        <Typography sx={{ fontSize: '0.9rem' }}>{3}</Typography>
       </Stack>
       <Stack
         direction="row"
@@ -40,7 +40,7 @@ export default function Categories() {
         }}
       >
         <Typography sx={{ fontSize: '0.9rem' }}>Healthcare</Typography>
-        <Typography sx={{ fontSize: '0.9rem' }}>{Math.floor(Math.random() * 10)}</Typography>
+        <Typography sx={{ fontSize: '0.9rem' }}>{5}</Typography>
       </Stack>
       <Stack
         direction="row"
@@ -49,7 +49,7 @@ export default function Categories() {
         }}
       >
         <Typography sx={{ fontSize: '0.9rem' }}>Technology</Typography>
-        <Typography sx={{ fontSize: '0.9rem' }}>{Math.floor(Math.random() * 10)}</Typography>
+        <Typography sx={{ fontSize: '0.9rem' }}>{8}</Typography>
       </Stack>
     </Box>
   );

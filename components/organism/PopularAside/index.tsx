@@ -13,7 +13,7 @@ export default function PopularAside() {
   const [active, setActive] = useState(1);
   const [buttons, setButtons] = useState([] as any);
 
-  function setActiveBtn(e) {
+  function setActiveBtn(e:any) {
     setActive(Number(e.target.getAttribute('id')));
   }
 
@@ -25,7 +25,7 @@ export default function PopularAside() {
           sx={{
             width: '14px', height: '7px', backgroundColor: '#C4D1D1', margin: '0 4px', borderRadius: '3px',
           }}
-          id={i}
+          id={`${i}`}
           className={`pagination-btn ${active === i ? 'active' : 'not-active'}`}
           // eslint-disable-next-line no-restricted-globals
           onClick={() => { setActiveBtn(event); }}

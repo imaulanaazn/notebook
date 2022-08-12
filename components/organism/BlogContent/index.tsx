@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -48,7 +48,7 @@ function a11yProps(index: number) {
   };
 }
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: '#DFF1F0',
     color: '#00AAA1',
@@ -58,7 +58,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)(() => ({
   '&:nth-of-type(odd)': {
     backgroundColor: '#F2F8F7',
   },
@@ -180,8 +180,9 @@ export default function BlogContent() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow key={row.name}>
+              {rows.map((row, i) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <StyledTableRow key={`table${i}`}>
                   <StyledTableCell
                     component="th"
                     scope="row"

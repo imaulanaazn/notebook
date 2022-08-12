@@ -4,8 +4,7 @@ import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
 import CategoriesCard from '../components/atoms/CategoriesCard';
 
-export default function Categories({ newsData }) {
-  console.log(newsData);
+export default function Categories() {
   return (
     <>
       <Navbar />
@@ -36,13 +35,13 @@ export default function Categories({ newsData }) {
   );
 }
 
-export async function getServerSideProps() {
-  console.log('apa');
-  // Fetch data from external API
-  const res = await fetch('https://newsapi.org/v2/everything?q=featured&from=2022-08-01&apiKey=67e3e73e223f4b1ca32ee2bb447ccd93');
-  const newsData = await res.json();
-  console.log('apa');
+// export async function getServerSideProps() {
+//   console.log('apa');
+//   // Fetch data from external API
+//   const res = await fetch('https://newsapi.org/v2/everything?q=featured&from=2022-08-01&apiKey=67e3e73e223f4b1ca32ee2bb447ccd93');
+//   const newsData = await res.json();
+//   console.log('apa');
 
-  // Pass data to the page via props
-  return { props: { newsData } };
-}
+//   // Pass data to the page via props
+//   return { props: { newsData } };
+// }
