@@ -7,14 +7,18 @@ import blogData from '../../../dummyData.js';
 import Title from '../../atoms/Title';
 
 export default function PopularAside() {
-  const [totalData, setTotalData] = useState(blogData.slice(0, 10).length);
-  const [dataPerPage, setDataPerPage] = useState(2);
+  const totalData = blogData.slice(0, 10).length;
+  const dataPerPage:number = 2;
   const totalPage = Math.ceil(totalData / dataPerPage);
   const [active, setActive] = useState(1);
-  const [buttons, setButtons] = useState([]);
+  const [buttons, setButtons] = useState([] as any);
+
+  function setActiveBtn(e) {
+    setActive(Number(e.target.getAttribute('id')));
+  }
 
   useEffect(() => {
-    const tempButtons = [];
+    const tempButtons:any[] = [];
     for (let i = 0; i < totalPage; i += 1) {
       tempButtons.push(
         <Box
@@ -23,10 +27,8 @@ export default function PopularAside() {
           }}
           id={i}
           className={`pagination-btn ${active === i ? 'active' : 'not-active'}`}
-          // eslint-disable-next-line no-unused-vars
-          onClick={(e: { target: { getAttribute: (arg0: string) => any; }; }) => {
-            setActive(Number(e.target.getAttribute('id')));
-          }}
+          // eslint-disable-next-line no-restricted-globals
+          onClick={() => { setActiveBtn(event); }}
           key={i}
         />,
       );
