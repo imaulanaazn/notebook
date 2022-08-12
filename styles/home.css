@@ -1,0 +1,66 @@
+.pagination-btn:hover{
+  cursor: pointer;
+}
+.pagination-btn.active{
+  width: 35px;
+  background-color: #00AAA1;
+}
+.pagination-btn{
+  transition: .6s ease all;
+}
+svg.MuiSvgIcon-root::before{
+  content: "Hello";
+}
+
+ul.MuiPagination-ul{
+  justify-content: center;
+}
+
+.homeSocmed:hover{
+  background-color: #00AAA1;
+  border-color: #00AAA1;
+}
+
+.homeSocmed:hover i.fa-brands{
+  color:white;
+}
+.homeSocmed i.fa-brands{
+  color:#999999;
+  font-size: .7rem;
+}
+
+button.MuiButton-root.adsVisitBtn:hover{
+  background-color: #009c94;
+  color: white;
+}
+
+div.write-box img{
+  width: .8rem;
+  margin-right: .4rem;
+}
+button.MuiPaginationItem-root{
+  margin: 0 .5rem;
+}
+button.MuiPaginationItem-previousNext{
+  background-color: #00AAA1;
+  border: none;
+  color: white;
+}
+button.MuiPaginationItem-previousNext:hover{
+  background-color: #6cdbd6;
+}
+button.MuiPaginationItem-previousNext:disabled{
+  background-color: transparent;
+  color: black;
+}
+.search-with-tags-btn:hover{
+border-color: #00AAA1;
+background-color:#00AAA1;
+color:white;
+}
+
+.search-with-tags-btn.active{
+  border-color: #00AAA1;
+  background-color:#00AAA1;
+  color:white;
+}

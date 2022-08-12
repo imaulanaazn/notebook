@@ -1,0 +1,58 @@
+cite.cited{
+    font-size: .839rem;
+    color:#666666;
+    padding: 0;
+    margin: 1rem 0;
+}
+cite.cited p{
+    padding: 2rem;
+    background-color: #F2F8F7;
+}
+ol.blog-single-list{
+    color: #666666; 
+    font-size: 0.84rem; 
+    font-weight: 400;
+    margin-top: 1.188rem;
+}
+ol.blog-single-list li p{
+    font-size: 0.84rem; 
+    font-weight: 400;
+}
+.step-tab .MuiTabs-scroller .MuiTabs-indicator{
+    display: none;
+}
+div.tab-panel{
+    background-color: #F2F8F7;
+}
+.step-tab button[aria-selected="true"]{
+    background-color: #F2F8F7;
+    color:#333333;
+}
+.step-tab button[aria-selected="false"]{
+    color:#00AAA1;
+}
+img.blog-single-share-icon{
+    margin: 0 0 2rem 3rem   ;
+    width: 1rem;
+}
+img.comment-love-icon, img.comment-twitter-icon,img.comment-facebook-icon{
+    width: .8rem;
+    height: .8rem;
+    margin-right: .2rem;
+}
+div.comment-section .comment-tab-panel>div{
+    padding: .3rem 0;
+}
+input#comment-field{
+    height:3rem;
+    padding: 0 1rem;
+}
+
+i.blog-single-socmed-icon{
+    color:#777777;
+    font-size: 1.3rem;
+}
+i.blog-single-socmed-icon:hover{
+    color: #00AAA1;
+    cursor: pointer;
+}

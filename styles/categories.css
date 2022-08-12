@@ -1,0 +1,15 @@
+
+div.categories-card:hover{
+    cursor: pointer;
+}
+div.categories-card.active{
+    background-color: #00AAA1;
+    color: aliceblue;
+}
+div.categories-card.active i.categories-icon{
+    color: aliceblue;
+}
+i.categories-icon{
+    color:#00AAA1;
+    font-size: 2.5rem;
+}

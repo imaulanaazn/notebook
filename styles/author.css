@@ -1,0 +1,9 @@
+i.author-socmed-icon{
+    color:#777777;
+    font-size: 1.3rem;
+    margin-right: 1.1rem;
+}
+i.author-socmed-icon:hover{
+    color: #00AAA1;
+    cursor: pointer;
+}
