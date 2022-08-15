@@ -70,6 +70,10 @@ const theme = createTheme({
 });
 
 export default function Navbar() {
+  const handleSearch = (e:any) => {
+    sessionStorage.setItem('searchValue', e.target.value);
+  };
+
   const [currentLanguage, setCurrentLanguage] = useState('En');
   const changeLanguage = (lang:string, event) => {
     event.preventDefault();
@@ -217,8 +221,9 @@ export default function Navbar() {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={(e) => { handleSearch(e); }}
               />
-              <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} href="/#"><img className="search-icon" src="/icon/search.svg" alt="" /></Link>
+              <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} href="/search-result"><img className="search-icon" src="/icon/search.svg" alt="" /></Link>
             </Search>
 
             <Link href="/write" sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' } }}><img className="edit-icon" src="/icon/edit.svg" alt="" /></Link>

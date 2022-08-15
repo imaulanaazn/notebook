@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { Box, Typography } from '@mui/material';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
 import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
-import data from '../dummyData';
 
-export default function SearchResult() {
+let wordToSearch:string;
+
+export default function SearchResult({ blogs }:any) {
+  const [searchValue, setSearchValue] = useState('');
+  useEffect(() => { setSearchValue(sessionStorage.getItem('searchValue')); });
+  useEffect(() => { wordToSearch = searchValue; }, [searchValue]);
+  console.log(wordToSearch);
   return (
     <>
       <Navbar />
@@ -17,7 +23,7 @@ export default function SearchResult() {
           >
             search result for
             {' '}
-            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>travel</Typography>
+            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>{searchValue}</Typography>
           </Typography>
           <Box sx={{
             width: '100%', height: '1px', backgroundColor: '#C4C4C4', transform: 'translateY(-2px)',
@@ -25,13 +31,14 @@ export default function SearchResult() {
           />
         </Box>
         <Box className="blogs" sx={{ width: { md: '70%', xs: '100%' } }}>
-          {data.slice(3, 9).map((blog) => (
+          {blogs.articles.slice(0, 50).map((blog:any) => (
             <RecentlyPostedCard
-              label={blog.label}
+              label={blog.source.name}
               title={blog.title}
-              name={blog.name}
-              date={blog.date}
-              content={blog.content}
+              name={blog.author}
+              date="12 december 2012"
+              content={blog.description}
+              imgUrl={blog.urlToImage}
             />
           ))}
         </Box>
@@ -39,4 +46,14 @@ export default function SearchResult() {
       <Footer />
     </>
   );
+}
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://newsapi.org/v2/everything?q=${wordToSearch}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`);
+  const blogs = await res.json();
+
+  // Pass data to the page via props
+  return { props: { blogs } };
 }
