@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
-import data from '../../../dummyData';
+import { authors } from '../../../dummyData';
 
-export default function ReadAuthorBlogs() {
+export default function ReadAuthorBlogs({ name, authorBlogs }:any) {
+  const authorData = authors.filter((author) => author.name === name.name);
+  console.log(authorData);
   return (
     <Box sx={{ margin: { sm: '4rem 4rem', xs: '0 2rem' } }}>
       <Typography
@@ -27,7 +29,7 @@ export default function ReadAuthorBlogs() {
           display: 'grid', gridTemplateColumns: { md: 'repeat(auto-fit, minmax(270px, .8fr))', xs: 'repeat(auto-fit, minmax(270px, 1fr))' }, marginTop: '2rem', gridGap: { md: '3rem 1.5rem', sm: '2.5rem 1.7rem', xs: '3rem' }, justifyContent: 'center',
         }}
       >
-        {data.slice(0, 5).map((blog) => (
+        {authorBlogs.articles.slice(0, 5).map((blog) => (
           <Box
             className="featured-card1"
             sx={{
@@ -35,27 +37,27 @@ export default function ReadAuthorBlogs() {
             }}
           >
             <Box sx={{
-              width: '100%', height: '14.5rem', backgroundColor: '#D9D9D9', borderRadius: '0.438rem',
+              width: '100%', height: '14.5rem', backgroundColor: '#D9D9D9', borderRadius: '0.438rem', overflow: 'hidden',
             }}
             >
-              <img src="/#" alt="" />
+              <img src={blog.urlToImage} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </Box>
             <Typography
               sx={{
                 fontWeight: '400', fontSize: { md: '0.74rem', sm: '0.6rem' }, display: 'inline-block', backgroundColor: '#E8F3F3', color: '#666666', padding: '.1rem .7rem', borderRadius: '3px', margin: '1.5rem 0 .8rem',
               }}
             >
-              {blog.label}
+              {blog.source.name}
             </Typography>
             <Typography variant="h2" sx={{ fontSize: { md: '1.55rem', sm: '1.5rem', xs: '1.4rem' }, fontStyle: 'normal', fontWeight: '600' }}>{blog.title}</Typography>
             <Stack direction="row" sx={{ margin: '1.5rem 0 .6rem' }}>
               <Stack direction="row" sx={{ alignItems: 'center' }}>
-                <img src="img/author.png" alt="" style={{ width: '1rem', height: '1rem' }} />
+                <img src={authorData[0].profilePic} alt="" style={{ width: '1rem', height: '1rem', borderRadius: '50%' }} />
                 <Typography sx={{
                   color: '#777777', fontWeight: '400', fontSize: '0.74rem', margin: '0 .5rem',
                 }}
                 >
-                  {blog.name}
+                  {name.name}
                 </Typography>
               </Stack>
               <Stack direction="row" sx={{ borderLeft: '1px solid #999999', borderRight: '1px solid #999999', padding: '0 .5rem' }}>
@@ -64,7 +66,7 @@ export default function ReadAuthorBlogs() {
                   color: '#777777', fontWeight: '400', fontSize: '0.74rem', marginLeft: '.5rem',
                 }}
                 >
-                  {blog.date}
+                  02 december 2019
                 </Typography>
               </Stack>
               <Stack direction="row">
@@ -76,7 +78,7 @@ export default function ReadAuthorBlogs() {
               color: '#555555', fontSize: '0.84rem', fontWeight: '400',
             }}
             >
-              {blog.content}
+              {blog.description}
             </Typography>
           </Box>
         ))}

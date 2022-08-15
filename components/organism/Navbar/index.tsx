@@ -218,14 +218,14 @@ export default function Navbar() {
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
               />
-              <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} href="/#"><img className="search-icon" src="icon/search.svg" alt="" /></Link>
+              <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} href="/#"><img className="search-icon" src="/icon/search.svg" alt="" /></Link>
             </Search>
 
-            <Link href="/write" sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' } }}><img className="edit-icon" src="icon/edit.svg" alt="" /></Link>
+            <Link href="/write" sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' } }}><img className="edit-icon" src="/icon/edit.svg" alt="" /></Link>
             <Typography sx={{ margin: { md: '0 1rem', sm: '0 1.6rem', xs: '.6rem' } }}><Link href="/contact" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.5rem', md: '1rem' } }}>Contact</Link></Typography>
             <Box className="categories-container" sx={{ position: 'relative', margin: { sm: '0 1.3rem', xs: '0 .6rem' } }}>
               <Link href="/#" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.5rem', md: '0.938rem' } }}>{currentLanguage}</Link>
-              <img className="dropdown-icon" src="icon/arrow-down.svg" alt="" />
+              <img className="dropdown-icon" src="/icon/arrow-down.svg" alt="" />
               <ul className="categories-list">
                 <Link href="/#" onClick={() => { changeLanguage('Ch', event); }} underline="none" sx={{ color: '#333333', fontSize: { sm: '1.6rem', md: '.9rem' } }}><li className="categories-item">Ch</li></Link>
                 <Link href="/#" onClick={() => { changeLanguage('Id', event); }} underline="none" sx={{ color: '#333333', fontSize: { sm: '1.6rem', md: '.9rem' } }}><li className="categories-item">Id</li></Link>

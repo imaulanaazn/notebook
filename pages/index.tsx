@@ -13,7 +13,7 @@ import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
 import InstagramPosts from '../components/organism/InstagramPosts/InstagramPosts';
 import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags';
 
-const Home: NextPage = () => (
+const Home: NextPage = ({ featuredData, latestBlogData, popularBlogs }:any) => (
   <>
     <Navbar />
     <main>
@@ -23,11 +23,11 @@ const Home: NextPage = () => (
           backgroundColor: '#F2F8F7', display: 'flex', padding: { md: '6rem  3rem  ', sm: '5.5rem  3rem 0 ', xs: '3rem 1.5rem 0' }, height: { md: '44rem' }, flexDirection: { md: 'row', xs: 'column' },
         }}
       >
-        <Featured />
-        <PopularAside />
+        <Featured featuredData={featuredData} />
+        <PopularAside popularBlogs={popularBlogs} />
       </Box>
       <Box className="main-content" sx={{ display: 'flex', padding: { md: '6rem  3rem  ', sm: '5.5rem  3rem', xs: '3rem 1.5rem' }, flexDirection: { md: 'row', xs: 'column' } }}>
-        <RecentlyPosted />
+        <RecentlyPosted latestBlogData={latestBlogData} />
         <Box sx={{ width: { lg: '32%', md: '38%' } }}>
           <TopAuthor />
           <Ads />
@@ -41,6 +41,21 @@ const Home: NextPage = () => (
     <Footer />
   </>
 );
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const [featuredRes, latestBlogRes, popularBlogRes] = await Promise.all([
+    fetch(`https://newsapi.org/v2/everything?q=featured&from=2022-08-01&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+    fetch(`https://newsapi.org/v2/everything?q=recently-posted&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+    fetch(`https://newsapi.org/v2/everything?q=recently-posted&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+  ]);
+  const [featuredData, latestBlogData, popularBlogs] = await Promise.all([
+    featuredRes.json(),
+    latestBlogRes.json(),
+    popularBlogRes.json(),
+  ]);
+
+  // Pass data to the page via props
+  return { props: { featuredData, latestBlogData, popularBlogs } };
+}
 
 export default Home;
-// https://newsapi.org/v2/everything?q=featured&from=2022-08-01&apiKey=67e3e73e223f4b1ca32ee2bb447ccd93

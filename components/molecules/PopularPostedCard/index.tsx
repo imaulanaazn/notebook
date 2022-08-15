@@ -53,7 +53,7 @@ export default function PopularPostedCard(params) {
         color: '#555555', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
       }}
       >
-        {content}
+        {content.length < 200 ? content : `${content.substring(0, 120)}....`}
       </Typography>
     </Box>
   );

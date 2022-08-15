@@ -5,14 +5,14 @@ import * as React from 'react';
 import { useState } from 'react';
 import Title from '../../atoms/Title';
 import usePagination from './Pagination';
-import data from '../../../dummyData.js';
+// import data from '../../../dummyData.js';
 import RecentlyPostedCard from '../../molecules/RecentlyPostedCard';
 
-export default function RecentlyPosted() {
+export default function RecentlyPosted({ latestBlogData }:any) {
   const [page, setPage] = useState(1);
   const PER_PAGE = 9;
 
-  const _DATA = usePagination(data, PER_PAGE);
+  const _DATA = usePagination(latestBlogData.articles, PER_PAGE);
   const handleChange = (e, p) => {
     setPage(p);
     _DATA.jump(p);
@@ -21,16 +21,17 @@ export default function RecentlyPosted() {
     <Box sx={{ width: { md: '62%', lg: '68%' }, paddingRight: { md: '5rem', sm: '0' } }}>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Recently" secondTitle="Posted" />
       <Box className="blogs">
-        {_DATA.currentData().map((blog, i) => {
+        {_DATA.currentData().map((blog:any, i:number) => {
           if (i === 2 && page === 1) {
             return (
               <>
                 <RecentlyPostedCard
-                  label={blog.label}
+                  label={blog.source.name}
                   title={blog.title}
-                  name={blog.name}
-                  date={blog.date}
-                  content={blog.content}
+                  name={blog.author}
+                  date="12 june 2021"
+                  content={blog.description}
+                  imgUrl={blog.urlToImage}
                 />
                 <Box
                   className="write-box"
@@ -57,11 +58,12 @@ export default function RecentlyPosted() {
           }
           return (
             <RecentlyPostedCard
-              label={blog.label}
+              label={blog.source.name}
               title={blog.title}
-              name={blog.name}
-              date={blog.date}
-              content={blog.content}
+              name={blog.author}
+              date="12 june 2021"
+              content={blog.description}
+              imgUrl={blog.urlToImage}
             />
           );
         })}

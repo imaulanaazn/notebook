@@ -3,6 +3,7 @@ import {
   Box, Typography, Link,
 } from '@mui/material';
 import AboutAuthorCard from '../../molecules/AboutAuthorCard';
+import { authors } from '../../../dummyData';
 
 export default function MeetOurAuthor() {
   return (
@@ -27,12 +28,13 @@ export default function MeetOurAuthor() {
         display: 'grid', width: { sm: '70%', xs: '90%' }, margin: '0 auto 4rem', gridGap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(21rem,1fr))',
       }}
       >
-        <AboutAuthorCard name="Maria Jenin" totalPosts={24} />
-        <AboutAuthorCard name="enna lee" totalPosts={45} />
-        <AboutAuthorCard name="simon D’silva" totalPosts={11} />
-        <AboutAuthorCard name="asa agarwal" totalPosts={31} />
-        <AboutAuthorCard name="simon D’silva" totalPosts={12} />
-        <AboutAuthorCard name="Maria Jenin" totalPosts={22} />
+        {authors.map((author) => (
+          <AboutAuthorCard
+            name={author.name}
+            totalPosts={author.totalPosts}
+            profilePic={author.profilePic}
+          />
+        ))}
       </Box>
       <Box
         className="write-box"

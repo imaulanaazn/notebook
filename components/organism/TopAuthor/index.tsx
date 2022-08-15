@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box, Stack, Typography, Link,
 } from '@mui/material';
@@ -9,14 +9,16 @@ export default function TopAuthor() {
   return (
     <Box>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Top" secondTitle="Authors" />
-      {authors.map((author) => (
+      {authors.slice(0, 3).map((author) => (
         <Stack direction="row" sx={{ alignItems: 'center', marginBottom: '2.6rem' }}>
           <Box
             className="profile-pic"
             sx={{
-              width: '4.6rem', minWidth: '4.6rem', height: '4.5rem', borderRadius: '50%', backgroundColor: '#D9D9D9',
+              width: '4.6rem', minWidth: '4.6rem', height: '4.5rem', borderRadius: '50%', backgroundColor: '#D9D9D9', overflow: 'hidden',
             }}
-          />
+          >
+            <img src={author.profilePic} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </Box>
           <Box className="autor-info" sx={{ marginLeft: '1.5rem' }}>
             <Typography variant="h5" sx={{ fontSize: '1rem', fontWeight: '500' }}>
               {author.name}

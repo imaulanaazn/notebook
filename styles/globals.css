@@ -24,3 +24,14 @@ background: linear-gradient(90deg, rgba(2,0,36,0) 32%, rgba(196,196,196,1) 39%, 
  border-radius: 10px;
 }
 
+.popular-aside-scrollbar::-webkit-scrollbar {
+  width: .3rem;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,0) 32%, rgba(196,196,196,1) 39%, rgba(196,196,196,1) 45%, rgba(196,196,196,1) 50%, rgba(196,196,196,1) 55%, rgba(196,196,196,1) 61%, rgba(202,221,215,0) 68%);
+}
+
+.popular-aside-scrollbar::-webkit-scrollbar-thumb {
+ background-color: transparent;
+ border-radius: 10px;
+}
+

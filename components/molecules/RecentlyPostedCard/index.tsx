@@ -3,7 +3,7 @@ import { Box, Typography, Stack } from '@mui/material';
 
 export default function RecentlyPostedCard(param:any) {
   const {
-    label, title, name, date, content,
+    label, title, name, date, content, imgUrl,
   } = param;
   return (
     <Box
@@ -17,7 +17,9 @@ export default function RecentlyPostedCard(param:any) {
         sx={{
           width: { sm: '40%', xs: '100%' }, height: '13rem', backgroundColor: '#D9D9D9', borderRadius: '0.438rem',
         }}
-      />
+      >
+        <img src={imgUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      </Box>
       <Box sx={{ width: { sm: '56%', xs: '100%' } }}>
         <Typography
           sx={{

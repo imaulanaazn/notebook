@@ -3,15 +3,17 @@ import {
   Box, Stack,
 } from '@mui/material';
 import PopularPostedCard from '../../molecules/PopularPostedCard';
-import blogData from '../../../dummyData.js';
+// import blogData from '../../../dummyData.js';
 import Title from '../../atoms/Title';
+import BlogSingle from '../../../pages/blog-single';
 
-export default function PopularAside() {
-  const totalData = blogData.slice(0, 10).length;
+export default function PopularAside({ popularBlogs }:any) {
+  const totalData = popularBlogs.articles.slice(0, 10).length;
   const dataPerPage:number = 2;
   const totalPage = Math.ceil(totalData / dataPerPage);
   const [active, setActive] = useState(1);
   const [buttons, setButtons] = useState([] as any);
+  console.log(popularBlogs.articles[0].description.substring(0, 100));
 
   function setActiveBtn(e:any) {
     setActive(Number(e.target.getAttribute('id')));
@@ -41,23 +43,22 @@ export default function PopularAside() {
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Popular" secondTitle="Posted" />
 
       <Box
-        className="featured-card"
+        className="featured-card popular-aside-scrollbar"
         sx={{
-          height: { md: '70%', sm: '65%', xs: '75%' }, display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+          height: { md: '70%', sm: '65%', xs: '75%' }, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflowY: 'scroll',
         }}
       >
         {
-        blogData.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
+        popularBlogs.articles.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
           .map((data) => (
             <PopularPostedCard
-              key={data.id}
-              label={data.label}
+              label={data.source.name}
               title={data.title}
-              profilePic={data.profilePic}
-              name={data.name}
-              date={data.date}
-              timeToRead={data.timeToRead}
-              content={data.content}
+              profilePic="img/author.png"
+              name={data.author}
+              date="10 june 1999"
+              timeToRead={10}
+              content={data.description}
             />
           ))
 

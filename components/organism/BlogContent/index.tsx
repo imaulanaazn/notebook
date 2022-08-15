@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -14,6 +14,7 @@ import data from '../../../dummyData';
 import CommentSection from '../CommentSection';
 
 interface TabPanelProps {
+  // eslint-disable-next-line react/require-default-props
   children?: React.ReactNode;
   index: number;
   value: number;
@@ -82,11 +83,18 @@ const rows = [
 ];
 
 export default function BlogContent() {
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
   const [value, setValue] = React.useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
   return (
+    (domLoaded
+    && (
     <Box sx={{ width: { md: '62%', sm: '100%' } }}>
       <Box
         className="featured-card1"
@@ -431,5 +439,7 @@ export default function BlogContent() {
         <CommentSection />
       </Box>
     </Box>
+    )
+    )
   );
 }
