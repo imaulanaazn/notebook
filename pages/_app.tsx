@@ -33,7 +33,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <script src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous" />
       </Head>
 
-      <Component {...pageProps} />
+      <Component
+        {...pageProps}
+      />
     </>
   );
 }

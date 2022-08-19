@@ -70,12 +70,17 @@ const theme = createTheme({
 });
 
 export default function Navbar() {
+  const [searchValue, setSearchValue] = useState('');
   const handleSearch = (e:any) => {
-    sessionStorage.setItem('searchValue', e.target.value);
+    setSearchValue(e.target.value);
+  };
+
+  const passSearchValue = () => {
+    sessionStorage.setItem('searchValue', searchValue);
   };
 
   const [currentLanguage, setCurrentLanguage] = useState('En');
-  const changeLanguage = (lang:string, event) => {
+  const changeLanguage = (lang:string, event:any) => {
     event.preventDefault();
     setCurrentLanguage(lang);
   };
@@ -223,7 +228,7 @@ export default function Navbar() {
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={(e) => { handleSearch(e); }}
               />
-              <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} href="/search-result"><img className="search-icon" src="/icon/search.svg" alt="" /></Link>
+              <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={() => { passSearchValue(); }} href="/search-result"><img className="search-icon" src="/icon/search.svg" alt="" /></Link>
             </Search>
 
             <Link href="/write" sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' } }}><img className="edit-icon" src="/icon/edit.svg" alt="" /></Link>

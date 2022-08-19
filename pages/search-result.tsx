@@ -1,17 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Box, Typography } from '@mui/material';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
 import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
 
-let wordToSearch:string;
-
-export default function SearchResult({ blogs }:any) {
-  const [searchValue, setSearchValue] = useState('');
-  useEffect(() => { setSearchValue(sessionStorage.getItem('searchValue')); });
-  useEffect(() => { wordToSearch = searchValue; }, [searchValue]);
-  console.log(wordToSearch);
+export default function SearchResult() {
+  const [searchedWord, setSearchedWord] = useState('');
+  const [blogResult, setBlogResult] = useState('');
+  useEffect(() => { setSearchedWord(sessionStorage.getItem('searchValue')); });
+  useEffect(() => {
+    if (searchedWord) {
+      const fetchData = async () => {
+        const data = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&from=2022-08-01&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`);
+        const result = await data.json();
+        setBlogResult(result);
+      };
+      fetchData();
+    }
+  }, [searchedWord]);
+  console.log(blogResult);
   return (
     <>
       <Navbar />
@@ -23,7 +31,7 @@ export default function SearchResult({ blogs }:any) {
           >
             search result for
             {' '}
-            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>{searchValue}</Typography>
+            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>{searchedWord}</Typography>
           </Typography>
           <Box sx={{
             width: '100%', height: '1px', backgroundColor: '#C4C4C4', transform: 'translateY(-2px)',
@@ -31,7 +39,7 @@ export default function SearchResult({ blogs }:any) {
           />
         </Box>
         <Box className="blogs" sx={{ width: { md: '70%', xs: '100%' } }}>
-          {blogs.articles.slice(0, 50).map((blog:any) => (
+          {blogResult.articles?.slice(0, 50).map((blog:any) => (
             <RecentlyPostedCard
               label={blog.source.name}
               title={blog.title}
@@ -46,14 +54,4 @@ export default function SearchResult({ blogs }:any) {
       <Footer />
     </>
   );
-}
-
-// This gets called on every request
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://newsapi.org/v2/everything?q=${wordToSearch}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`);
-  const blogs = await res.json();
-
-  // Pass data to the page via props
-  return { props: { blogs } };
 }

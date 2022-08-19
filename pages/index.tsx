@@ -13,7 +13,9 @@ import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
 import InstagramPosts from '../components/organism/InstagramPosts/InstagramPosts';
 import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags';
 
-const Home: NextPage = ({ featuredData, latestBlogData, popularBlogs }:any) => (
+const Home: NextPage = ({
+  featuredData, latestBlogData, popularBlogs,
+}:any) => (
   <>
     <Navbar />
     <main>
