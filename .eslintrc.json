@@ -5,9 +5,8 @@
         "node": true
     },
     "extends": [
-        "plugin:@next/next/recommended",
-        "airbnb",
         "eslint:recommended",
+        "plugin:react/recommended",
       	"next/core-web-vitals"
     ],
     "parser": "@typescript-eslint/parser",
