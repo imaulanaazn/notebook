@@ -38,8 +38,9 @@ export default function SearchResult() {
           />
         </Box>
         <Box className="blogs" sx={{ width: { md: '70%', xs: '100%' } }}>
-          {blogResult?.map((blog:any) => (
+          {blogResult?.map((blog:any, keyValue:number) => (
             <RecentlyPostedCard
+              key={`posted${keyValue}`}
               label={blog.source.name}
               title={blog.title}
               name={blog.author}

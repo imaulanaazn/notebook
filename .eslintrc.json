@@ -26,7 +26,8 @@
         "react/jsx-props-no-spreading": 0,
         "linebreak-style": ["error", "unix"],
         "import/extensions":0,
-        "no-restricted-globals":"off"
+        "no-restricted-globals":"off",
+        "react/no-array-index-key":"off"
     },
     "settings": {
     "import/resolver": {
