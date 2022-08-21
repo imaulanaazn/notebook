@@ -4,7 +4,6 @@ import { authors } from '../../../dummyData';
 
 export default function ReadAuthorBlogs({ name, authorBlogs }:any) {
   const authorData = authors.filter((author) => author.name === name.name);
-  console.log(authorData);
   return (
     <Box sx={{ margin: { sm: '4rem 4rem', xs: '0 2rem' } }}>
       <Typography
@@ -29,7 +28,7 @@ export default function ReadAuthorBlogs({ name, authorBlogs }:any) {
           display: 'grid', gridTemplateColumns: { md: 'repeat(auto-fit, minmax(270px, .8fr))', xs: 'repeat(auto-fit, minmax(270px, 1fr))' }, marginTop: '2rem', gridGap: { md: '3rem 1.5rem', sm: '2.5rem 1.7rem', xs: '3rem' }, justifyContent: 'center',
         }}
       >
-        {authorBlogs.articles.slice(0, 5).map((blog) => (
+        {authorBlogs.articles.slice(0, 5).map((blog:any) => (
           <Box
             className="featured-card1"
             sx={{

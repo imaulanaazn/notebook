@@ -7,19 +7,19 @@ import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
 
 export default function SearchResult() {
   const [searchedWord, setSearchedWord] = useState('');
-  const [blogResult, setBlogResult] = useState('');
-  useEffect(() => { setSearchedWord(sessionStorage.getItem('searchValue')); });
+  const [blogResult, setBlogResult] = useState([]);
+  useEffect(() => { setSearchedWord(sessionStorage.getItem('searchValue') ?? ''); });
   useEffect(() => {
     if (searchedWord) {
       const fetchData = async () => {
         const data = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&from=2022-08-01&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`);
         const result = await data.json();
-        setBlogResult(result);
+        setBlogResult(result.articles.slice(1, 40));
       };
       fetchData();
     }
   }, [searchedWord]);
-  console.log(blogResult);
+
   return (
     <>
       <Navbar />
@@ -39,7 +39,7 @@ export default function SearchResult() {
           />
         </Box>
         <Box className="blogs" sx={{ width: { md: '70%', xs: '100%' } }}>
-          {blogResult.articles?.slice(0, 50).map((blog:any) => (
+          {blogResult?.map((blog:any) => (
             <RecentlyPostedCard
               label={blog.source.name}
               title={blog.title}

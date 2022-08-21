@@ -1,7 +1,13 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 
-export default function Title(props) {
+interface TitleProps{
+  marginBottom:object,
+  mainTitle:string,
+  secondTitle:string
+}
+
+export default function Title(props:TitleProps) {
   const { marginBottom, mainTitle, secondTitle } = props;
   return (
     <Typography

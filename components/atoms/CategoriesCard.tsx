@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Stack, Typography } from '@mui/material';
 
-export default function CategoriesCard({ title, iconClass }) {
+interface CategoriesCardProps{
+  title:string,
+  iconClass:string
+}
+
+export default function CategoriesCard({ title, iconClass }:CategoriesCardProps) {
   const [activeClass, setActiveClass] = useState('');
   return (
     <Stack

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+/* eslint-disable no-shadow */
+import { useState } from 'react';
 
-function usePagination(data, itemsPerPage) {
+function usePagination(data:any, itemsPerPage:number) {
   const [currentPage, setCurrentPage] = useState(1);
   const maxPage = Math.ceil(data.length / itemsPerPage);
 
@@ -11,16 +12,16 @@ function usePagination(data, itemsPerPage) {
   }
 
   function next() {
-    setCurrentPage((currentPage) => Math.min(currentPage + 1, maxPage));
+    setCurrentPage((currentPage:number) => Math.min(currentPage + 1, maxPage));
   }
 
   function prev() {
-    setCurrentPage((currentPage) => Math.max(currentPage - 1, 1));
+    setCurrentPage((currentPage:number) => Math.max(currentPage - 1, 1));
   }
 
-  function jump(page) {
+  function jump(page:number) {
     const pageNumber = Math.max(1, page);
-    setCurrentPage((currentPage) => Math.min(pageNumber, maxPage));
+    setCurrentPage(() => Math.min(pageNumber, maxPage));
   }
 
   return {

@@ -130,7 +130,7 @@ export default function faq() {
                   Did you come here for something in particular or just general Riker-bashing?
                   And blowing into maximum warp speed,
                   you appeared for an instant to be in two places at once.
-                  We have a saboteur aboard. We know you’re dealing in stolen ore.
+                  We have a saboteur aboard. We know you`&apos;`re dealing in stolen ore.
                   But I wanna talk about
                 </Typography>
               </AccordionDetails>
@@ -138,7 +138,7 @@ export default function faq() {
           </Box>
         </Box>
         <Typography sx={{ fontSize: '1.3rem', fontWeight: '500', margin: '3rem 0 1rem' }}>
-          Can't find an answer to your question?
+          Can`&apos;`t find an answer to your question?
         </Typography>
         <Button
           variant="outlined"

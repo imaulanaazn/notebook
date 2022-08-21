@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import * as React from 'react';
 // import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';

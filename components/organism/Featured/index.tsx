@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, Box, Stack } from '@mui/material';
 import Title from '../../atoms/Title';
-// import data from '../../../dummyData';
 
 export default function Featured({ featuredData }:any) {
   return (

@@ -1,7 +1,12 @@
 import React from 'react';
 import { Stack, Box, Typography } from '@mui/material';
 
-export default function AboutAuthorCard(params:any) {
+interface AboutAuthorCardProps {
+  name:string,
+  totalPosts:number,
+  profilePic:string
+}
+export default function AboutAuthorCard(params:AboutAuthorCardProps) {
   const { name, totalPosts, profilePic } = params;
   return (
     <Stack direction="row" className="about-authors-card" sx={{ justifyContent: 'space-between' }}>

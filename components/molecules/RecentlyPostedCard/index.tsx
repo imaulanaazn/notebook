@@ -1,7 +1,15 @@
 import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 
-export default function RecentlyPostedCard(param:any) {
+interface RecentlyPostedCardProps{
+  label : string,
+  title : string,
+  name : string,
+  date : string,
+  content : string,
+  imgUrl : string,
+}
+export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
   const {
     label, title, name, date, content, imgUrl,
   } = param;

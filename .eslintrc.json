@@ -25,7 +25,8 @@
         "react/function-component-definition": 0,
         "react/jsx-props-no-spreading": 0,
         "linebreak-style": ["error", "windows"],
-        "import/extensions":0
+        "import/extensions":0,
+        "no-restricted-globals":"off"
     },
     "settings": {
     "import/resolver": {

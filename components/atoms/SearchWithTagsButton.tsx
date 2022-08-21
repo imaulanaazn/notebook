@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Button } from '@mui/material';
 
-export default function SearchWithTagsButton(params) {
+interface SearchWithTagsButtonProps{
+  tag:string
+}
+
+export default function SearchWithTagsButton(params:SearchWithTagsButtonProps) {
   const { tag } = params;
   const [activeClass, setActiveClass] = useState('');
   return (

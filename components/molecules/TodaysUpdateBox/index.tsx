@@ -1,7 +1,12 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
 
-export default function TodaysUpdateBox(params) {
+interface TodaysUpdateBoxProps{
+  total:number,
+  statsTitle:string
+}
+
+export default function TodaysUpdateBox(params:TodaysUpdateBoxProps) {
   const { total, statsTitle } = params;
   return (
     <Stack

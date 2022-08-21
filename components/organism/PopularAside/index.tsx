@@ -3,9 +3,7 @@ import {
   Box, Stack,
 } from '@mui/material';
 import PopularPostedCard from '../../molecules/PopularPostedCard';
-// import blogData from '../../../dummyData.js';
 import Title from '../../atoms/Title';
-import BlogSingle from '../../../pages/blog-single';
 
 export default function PopularAside({ popularBlogs }:any) {
   const totalData = popularBlogs.articles.slice(0, 10).length;
@@ -13,7 +11,6 @@ export default function PopularAside({ popularBlogs }:any) {
   const totalPage = Math.ceil(totalData / dataPerPage);
   const [active, setActive] = useState(1);
   const [buttons, setButtons] = useState([] as any);
-  console.log(popularBlogs.articles[0].description.substring(0, 100));
 
   function setActiveBtn(e:any) {
     setActive(Number(e.target.getAttribute('id')));
@@ -50,7 +47,7 @@ export default function PopularAside({ popularBlogs }:any) {
       >
         {
         popularBlogs.articles.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
-          .map((data) => (
+          .map((data:any) => (
             <PopularPostedCard
               label={data.source.name}
               title={data.title}

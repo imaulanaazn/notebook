@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Stack } from '@mui/material';
+import {
+  Box, Typography, Stack,
+} from '@mui/material';
 import { featuredCompanies } from '../../../dummyData';
 
 export default function Featured() {
@@ -18,7 +20,6 @@ export default function Featured() {
   });
 
   useEffect(() => {
-    console.log(screenW);
     if (screenW <= 600) {
       setDataPerPage(2);
     } else if (screenW <= 900) {
@@ -28,20 +29,21 @@ export default function Featured() {
     }
   }, [screenW]);
 
+  const setActiveBtn = (e:any) => {
+    setActive(Number(e.target.getAttribute('id')));
+  };
+
   useEffect(() => {
-    const tempButtons = [];
+    const tempButtons:any[] = [];
     for (let i = 0; i < totalPage; i += 1) {
       tempButtons.push(
         <Box
           sx={{
             width: '14px', height: '7px', backgroundColor: '#C4D1D1', margin: '0 4px', borderRadius: '3px',
           }}
-          id={i}
+          id={`${i}`}
           className={`pagination-btn ${active === i ? 'active' : 'not-active'}`}
-          // eslint-disable-next-line no-unused-vars
-          onClick={(e: { target: { getAttribute: (arg0: string) => any; }; }) => {
-            setActive(Number(e.target.getAttribute('id')));
-          }}
+          onClick={() => { setActiveBtn(event); }}
           key={i}
         />,
       );

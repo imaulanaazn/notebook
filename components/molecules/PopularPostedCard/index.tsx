@@ -1,7 +1,18 @@
 import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 
-export default function PopularPostedCard(params) {
+interface PopularPostedCardProps{
+  label:string,
+   title:string,
+   profilePic:string,
+   name:string,
+   date:string,
+   timeToRead:number,
+   content:string,
+
+}
+
+export default function PopularPostedCard(params:PopularPostedCardProps) {
   const {
     label, title, profilePic, name, date, timeToRead, content,
   } = params;

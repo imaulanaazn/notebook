@@ -38,6 +38,9 @@ function TabPanel(props: TabPanelProps) {
     </div>
   );
 }
+TabPanel.defaultProps = {
+  children: null,
+};
 
 function a11yProps(index: number) {
   return {
@@ -67,7 +70,7 @@ export default function CommentSection() {
                   disableElevation
                   {...bindTrigger(popupState)}
                   sx={{
-                    marginLeft: 'auto', backgroundColor: 'transparent', color: 'black', textTransform: 'capitalize', color: '#333333', padding: '0',
+                    marginLeft: 'auto', backgroundColor: 'transparent', textTransform: 'capitalize', color: '#333333', padding: '0',
                   }}
                 >
                   Dashboard
@@ -84,7 +87,7 @@ export default function CommentSection() {
           </PopupState>
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0} className="comment-tab-panel">
+      <TabPanel value={value} index={0}>
         <Stack direction="row">
           <Link href="/#" underline="none" sx={{ fontSize: '.839rem', color: '#333333', padding: '0 .4rem' }}>
             <i className="fa-regular fa-heart" style={{ color: '#db4437', marginRight: '.3rem' }} />

@@ -12,16 +12,16 @@ export default function RecentlyPosted({ latestBlogData }:any) {
   const [page, setPage] = useState(1);
   const PER_PAGE = 9;
 
-  const _DATA = usePagination(latestBlogData.articles, PER_PAGE);
-  const handleChange = (e, p) => {
+  const DATA = usePagination(latestBlogData.articles, PER_PAGE);
+  const handleChange = (e:any, p:number) => {
     setPage(p);
-    _DATA.jump(p);
+    DATA.jump(p);
   };
   return (
     <Box sx={{ width: { md: '62%', lg: '68%' }, paddingRight: { md: '5rem', sm: '0' } }}>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Recently" secondTitle="Posted" />
       <Box className="blogs">
-        {_DATA.currentData().map((blog:any, i:number) => {
+        {DATA.currentData().map((blog:any, i:number) => {
           if (i === 2 && page === 1) {
             return (
               <>
