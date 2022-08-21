@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import { Box, Typography } from '@mui/material';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
@@ -14,7 +13,7 @@ export default function SearchResult() {
       const fetchData = async () => {
         const data = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&from=2022-08-01&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`);
         const result = await data.json();
-        setBlogResult(result.articles.slice(1, 40));
+        setBlogResult(result?.articles?.slice(1, 40));
       };
       fetchData();
     }
