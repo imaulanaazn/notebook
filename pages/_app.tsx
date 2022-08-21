@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
         {/* FONTAWESOME */}
-        <script src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous" />
+        <script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous" />
       </Head>
 
       <Component

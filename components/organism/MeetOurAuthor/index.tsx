@@ -28,8 +28,9 @@ export default function MeetOurAuthor() {
         display: 'grid', width: { sm: '70%', xs: '90%' }, margin: '0 auto 4rem', gridGap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(21rem,1fr))',
       }}
       >
-        {authors.map((author) => (
+        {authors.map((author:any, index:number) => (
           <AboutAuthorCard
+            key={`authorCard${index}`}
             name={author.name}
             totalPosts={author.totalPosts}
             profilePic={author.profilePic}

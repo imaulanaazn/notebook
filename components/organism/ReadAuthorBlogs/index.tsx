@@ -28,8 +28,9 @@ export default function ReadAuthorBlogs({ name, authorBlogs }:any) {
           display: 'grid', gridTemplateColumns: { md: 'repeat(auto-fit, minmax(270px, .8fr))', xs: 'repeat(auto-fit, minmax(270px, 1fr))' }, marginTop: '2rem', gridGap: { md: '3rem 1.5rem', sm: '2.5rem 1.7rem', xs: '3rem' }, justifyContent: 'center',
         }}
       >
-        {authorBlogs.articles.slice(0, 5).map((blog:any) => (
+        {authorBlogs.articles.slice(0, 5).map((blog:any, index:number) => (
           <Box
+            key={`blog${index}`}
             className="featured-card1"
             sx={{
               width: '100%', minWidth: '197px',

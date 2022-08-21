@@ -9,8 +9,8 @@ export default function TopAuthor() {
   return (
     <Box>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Top" secondTitle="Authors" />
-      {authors.slice(0, 3).map((author) => (
-        <Stack direction="row" sx={{ alignItems: 'center', marginBottom: '2.6rem' }}>
+      {authors.slice(0, 3).map((author:any, index:number) => (
+        <Stack key={`title${index}`} direction="row" sx={{ alignItems: 'center', marginBottom: '2.6rem' }}>
           <Box
             className="profile-pic"
             sx={{

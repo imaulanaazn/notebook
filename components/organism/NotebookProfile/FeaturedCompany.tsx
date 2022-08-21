@@ -80,8 +80,8 @@ export default function Featured() {
       >
         {
         featuredCompanies.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
-          .map((imgUrl) => (
-            <Box sx={{ flex: '1' }}>
+          .map((imgUrl:any, index:number) => (
+            <Box sx={{ flex: '1' }} key={`button${index}`}>
               <img className="featured-icon" src={imgUrl} alt="" />
             </Box>
           ))

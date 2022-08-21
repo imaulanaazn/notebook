@@ -58,6 +58,7 @@ export default function RecentlyPosted({ latestBlogData }:any) {
           }
           return (
             <RecentlyPostedCard
+              key={`recently${i}`}
               label={blog.source.name}
               title={blog.title}
               name={blog.author}

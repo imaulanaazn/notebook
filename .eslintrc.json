@@ -29,7 +29,10 @@
         "linebreak-style": ["error", "windows"],
         "import/extensions":0,
         "no-restricted-globals":"off",
-        "react/no-array-index-key":"off"
+        "react/no-array-index-key":"off",
+        "@next/next/no-img-element": "off",
+        "@next/next/no-page-custom-font": "off",
+        "react-hooks/exhaustive-deps": "off"
     },
     "settings": {
     "import/resolver": {

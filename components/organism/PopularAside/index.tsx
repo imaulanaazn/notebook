@@ -33,7 +33,7 @@ export default function PopularAside({ popularBlogs }:any) {
       );
     }
     setButtons([...tempButtons]);
-  }, [active]);
+  }, [active, totalPage]);
 
   return (
     <Box className="popular-side-container" sx={{ width: { lg: '32%', md: '38%' }, height: { md: '100%', sm: '28rem', xs: '30rem' } }}>
@@ -47,8 +47,9 @@ export default function PopularAside({ popularBlogs }:any) {
       >
         {
         popularBlogs.articles.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
-          .map((data:any) => (
+          .map((data:any, index:number) => (
             <PopularPostedCard
+              key={`card${index}`}
               label={data.source.name}
               title={data.title}
               profilePic="img/author.png"
