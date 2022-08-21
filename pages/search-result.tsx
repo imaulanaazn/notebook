@@ -13,7 +13,7 @@ export default function SearchResult() {
       const fetchData = async () => {
         const data = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`);
         const result = await data.json();
-        setBlogResult(result?.articles?.slice(1, 40));
+        setBlogResult(result.articles.slice(1, 40));
       };
       fetchData();
     }
