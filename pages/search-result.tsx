@@ -1,24 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
 import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
 
-export default function SearchResult() {
-  const [searchedWord, setSearchedWord] = useState('');
-  const [blogResult, setBlogResult] = useState([]);
-  useEffect(() => { setSearchedWord(sessionStorage.getItem('searchValue') ?? ''); });
-  useEffect(() => {
-    if (searchedWord) {
-      const fetchData = async () => {
-        const data = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`);
-        const result = await data.json();
-        setBlogResult(result.articles.slice(1, 40));
-      };
-      fetchData();
-    }
-  }, [searchedWord]);
-
+export default function SearchResult({data}:any) {
   return (
     <>
       <Navbar />
@@ -30,7 +16,7 @@ export default function SearchResult() {
           >
             search result for
             {' '}
-            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>{searchedWord}</Typography>
+            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>Bitcoin</Typography>
           </Typography>
           <Box sx={{
             width: '100%', height: '1px', backgroundColor: '#C4C4C4', transform: 'translateY(-2px)',
@@ -38,7 +24,7 @@ export default function SearchResult() {
           />
         </Box>
         <Box className="blogs" sx={{ width: { md: '70%', xs: '100%' } }}>
-          {blogResult?.map((blog:any, keyValue:number) => (
+          {data?.articles?.map((blog:any, keyValue:number) => (
             <RecentlyPostedCard
               key={`posted${keyValue}`}
               label={blog.source.name}
@@ -54,4 +40,13 @@ export default function SearchResult() {
       <Footer />
     </>
   );
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://newsapi.org/v2/everything?q=bit&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
 }
