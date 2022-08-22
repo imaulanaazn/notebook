@@ -5,7 +5,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import Title from '../../atoms/Title';
 import usePagination from './Pagination';
-// import data from '../../../dummyData.js';
 import RecentlyPostedCard from '../../molecules/RecentlyPostedCard';
 
 export default function RecentlyPosted({ latestBlogData }:any) {
