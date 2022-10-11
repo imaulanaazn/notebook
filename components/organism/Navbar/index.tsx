@@ -1,6 +1,5 @@
 /* eslint-disable no-restricted-globals */
 import * as React from 'react';
-// import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useState } from 'react';
@@ -9,7 +8,6 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-// import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -46,7 +44,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       '&:focus': {
         width: '20ch',
       },
-      padding: '.7rem 1.1rem',
+      padding: '.5rem 1rem',
       fontSize: '1rem',
     },
     [theme.breakpoints.up('md')]: {
@@ -158,11 +156,11 @@ export default function Navbar() {
       <AppBar position="static" elevation={0} id="navbar">
         <Toolbar sx={{
           backgroundColor: '#E8F3F3',
-          height: { md: '4.375rem', sm: '11rem', xs: '7rem' },
+          height: { md: '4.375rem', sm: '9rem', xs: '8rem' },
           display: 'flex',
           flexDirection: { md: 'row', xs: 'column' },
           padding: {
-            sm: '0', lg: '0 6rem', md: '0 3rem', xs: '0 1rem',
+            lg: '0 5rem', md: '0 3rem',sm:'0 3rem', xs: '0 1.5rem',
           },
         }}
         >
@@ -197,7 +195,7 @@ export default function Navbar() {
           <Box
             className="right-menu"
             sx={{
-              color: '#333333', display: 'flex', flex: { md: '0 1 auto', sm: '1', xs: '1' }, alignItems: 'center', width: { md: 'auto', sm: '80%', xs: '100%' },
+              color: '#333333', display: 'flex', flex: { md: '0 1 auto', sm: '1', xs: '1' }, alignItems: 'center', width: {xs:'100%',md:'auto'},
             }}
           >
             <Box sx={{ marginRight: 'auto' }}>
@@ -207,7 +205,7 @@ export default function Navbar() {
                     onClick={toggleDrawer(anchor, true)}
                     className="menu-bar"
                     sx={{
-                      fontSize: { sm: '2.2rem', xs: '1.4rem' },
+                      fontSize: { sm: '2.1rem', xs: '1.4rem' },
                       color: 'black',
                       display: { md: 'none', sm: 'block' },
                     }}
@@ -228,20 +226,21 @@ export default function Navbar() {
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={(e) => { handleSearch(e); }}
+                sx={{color:'lightslategray'}}
               />
               <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={() => { passSearchValue(); }} href="/search-result"><img className="search-icon" src="/icon/search.svg" alt="" /></Link>
             </Search>
 
             <Link href="/write" sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' } }}><img className="edit-icon" src="/icon/edit.svg" alt="" /></Link>
-            <Typography sx={{ margin: { md: '0 1rem', sm: '0 1.6rem', xs: '.6rem' } }}><Link href="/contact" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.5rem', md: '1rem' } }}>Contact</Link></Typography>
+            <Typography sx={{ margin: { md: '0 1rem', sm: '0 1.6rem', xs: '.6rem' } }}><Link href="/contact" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.4rem', md: '1rem'}, fontWeight: 400 }}>Contact</Link></Typography>
             <Box className="categories-container" sx={{ position: 'relative', margin: { sm: '0 1.3rem', xs: '0 .6rem' } }}>
-              <Link href="/#" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.5rem', md: '0.938rem' } }}>{currentLanguage}</Link>
+              <Link href="/#" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.4rem', md: '0.938rem' }, fontWeight: 400 }}>{currentLanguage}</Link>
               <img className="dropdown-icon" src="/icon/arrow-down.svg" alt="" />
-              <ul className="categories-list">
-                <Link href="/#" onClick={() => { changeLanguage('Ch', event); }} underline="none" sx={{ color: '#333333', fontSize: { sm: '1.6rem', md: '.9rem' } }}><li className="categories-item">Ch</li></Link>
-                <Link href="/#" onClick={() => { changeLanguage('Id', event); }} underline="none" sx={{ color: '#333333', fontSize: { sm: '1.6rem', md: '.9rem' } }}><li className="categories-item">Id</li></Link>
-                <Link href="/#" onClick={() => { changeLanguage('My', event); }} underline="none" sx={{ color: '#333333', fontSize: { sm: '1.6rem', md: '.9rem' } }}><li className="categories-item">My</li></Link>
-              </ul>
+              <List className="categories-list">
+                <Link href="/#" onClick={() => { changeLanguage('Ch', event); }} underline="none" sx={{ color: '#333333' }}><ListItem className="categories-item" sx={{ justifyContent:'center', fontSize:{xs:'.9rem',sm:'1.2rem',backgroundColor: 'white',padding:'10px 0'}}}>Ch</ListItem></Link>
+                <Link href="/#" onClick={() => { changeLanguage('Id', event); }} underline="none" sx={{ color: '#333333' }}><ListItem className="categories-item" sx={{ justifyContent:'center', fontSize:{xs:'.9rem',sm:'1.2rem',backgroundColor: 'white',padding:'10px 0'}}}>Id</ListItem></Link>
+                <Link href="/#" onClick={() => { changeLanguage('My', event); }} underline="none" sx={{ color: '#333333' }}><ListItem className="categories-item" sx={{ justifyContent:'center', fontSize:{xs:'.9rem',sm:'1.2rem',backgroundColor: 'white',padding:'10px 0'}}}>My</ListItem></Link>
+              </List>
             </Box>
             {/* <Box sx={{ display: 'flex' }}>
               <Box sx={{

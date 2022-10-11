@@ -32,7 +32,6 @@ export default function SearchResult({data}:any) {
               name={blog.author}
               date="12 december 2012"
               content={blog.description}
-              imgUrl={blog.urlToImage}
             />
           ))}
         </Box>

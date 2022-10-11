@@ -13,9 +13,9 @@ import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
 import InstagramPosts from '../components/organism/InstagramPosts/InstagramPosts';
 import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags';
 
-const Home: NextPage = ({
-  featuredData, latestBlogData, popularBlogs,
-}:any) => (
+export default function Home( {featuredData, latestBlogData, popularBlogs} : any ) {
+  console.log(featuredData)
+  return(
   <>
     <Navbar />
     <main>
@@ -42,11 +42,11 @@ const Home: NextPage = ({
     </main>
     <Footer />
   </>
-);
+)}
 export async function getServerSideProps() {
   // Fetch data from external API
   const [featuredRes, latestBlogRes, popularBlogRes] = await Promise.all([
-    fetch(`https://newsapi.org/v2/everything?q=featured&from=2022-08-01&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+    fetch(`https://newsapi.org/v2/everything?q=featured&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
     fetch(`https://newsapi.org/v2/everything?q=recently-posted&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
     fetch(`https://newsapi.org/v2/everything?q=recently-posted&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
   ]);
@@ -59,5 +59,3 @@ export async function getServerSideProps() {
   // Pass data to the page via props
   return { props: { featuredData, latestBlogData, popularBlogs } };
 }
-
-export default Home;
