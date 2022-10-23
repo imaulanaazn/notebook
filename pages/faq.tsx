@@ -138,7 +138,7 @@ export default function faq() {
           </Box>
         </Box>
         <Typography sx={{ fontSize: '1.3rem', fontWeight: '500', margin: '3rem 0 1rem' }}>
-          Can`&apos;`t find an answer to your question?
+          Can&apos;t find an answer to your question?
         </Typography>
         <Button
           variant="outlined"

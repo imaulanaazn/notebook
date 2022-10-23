@@ -8,7 +8,7 @@ export default function Categories() {
   return (
     <>
       <Navbar />
-      <Box sx={{ padding: { sm: '4rem 4rem', xs: '3rem 2rem' } }}>
+      <Box sx={{ padding: { sm: '4rem 4rem 5rem', xs: '3rem 2rem 5rem' } }}>
         <Typography
           variant="h1"
           sx={{

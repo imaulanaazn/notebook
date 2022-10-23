@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useState } from 'react';
 import {
-  Typography, Link, Box, createTheme, ThemeProvider,
+  Typography, Box, createTheme, ThemeProvider,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -14,6 +14,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import InputBase from '@mui/material/InputBase';
+import Link from 'next/link';
 
 type Anchor = 'left';
 
@@ -83,6 +84,7 @@ export default function Navbar() {
     event.preventDefault();
     setCurrentLanguage(lang);
   };
+  console.log(currentLanguage)
   const [state, setState] = React.useState({
     left: false,
   });
@@ -113,37 +115,45 @@ export default function Navbar() {
               onClick={toggleDrawer(anchor, false)}
               onKeyDown={toggleDrawer(anchor, false)}
             >
-              <ListItemText
-                primaryTypographyProps={{ fontSize: { sm: '1.5rem', xs: '1rem' } }}
-                primary="HomePage"
-              />
+              <Link href='/'>
+                <ListItemText
+                  primaryTypographyProps={{ fontSize: { sm: '1.5rem', xs: '1rem' } }}
+                  primary="HomePage"
+                  />
+              </Link>
             </ListItemButton>
             <ListItemButton
               onClick={toggleDrawer(anchor, false)}
               onKeyDown={toggleDrawer(anchor, false)}
             >
+              <Link href='/categories'>
               <ListItemText
                 primaryTypographyProps={{ fontSize: { sm: '1.5rem', xs: '1rem' } }}
                 primary="Categories"
               />
+              </Link>
             </ListItemButton>
             <ListItemButton
               onClick={toggleDrawer(anchor, false)}
               onKeyDown={toggleDrawer(anchor, false)}
             >
+              <Link href='/about'>
               <ListItemText
                 primaryTypographyProps={{ fontSize: { sm: '1.5rem', xs: '1rem' } }}
                 primary="About"
               />
+              </Link>
             </ListItemButton>
             <ListItemButton
               onClick={toggleDrawer(anchor, false)}
               onKeyDown={toggleDrawer(anchor, false)}
             >
+              <Link href='/#'>
               <ListItemText
                 primaryTypographyProps={{ fontSize: { sm: '1.5rem', xs: '1rem' } }}
                 primary="Pages"
               />
+              </Link>
             </ListItemButton>
           </div>
         </ListItem>
@@ -165,16 +175,17 @@ export default function Navbar() {
         }}
         >
           <Box className="left-menu" sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-            <Link href="/" underline="none" sx={{ color: '#333333', marginRight: '1rem', fontSize: '0.938rem' }}>HomePage</Link>
-            <Link href="/categories" underline="none" sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem' }}>Categories</Link>
-            <Link href="/about" underline="none" sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem' }}>About</Link>
-            <Link href="/#" underline="none" sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem' }}>Pages</Link>
+            <Link href="/"><Typography sx={{ color: '#333333', marginRight: '1rem', fontSize: '0.938rem', '&:hover':{cursor:'pointer'} }}>HomePage</Typography></Link>
+            <Link href="/categories" ><Typography sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem','&:hover':{cursor:'pointer'} }}>Categories</Typography></Link>
+            <Link href="/about"><Typography sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem','&:hover':{cursor:'pointer'} }}>About</Typography></Link>
+            <Link href="/#"><Typography sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem','&:hover':{cursor:'pointer'} }}>Pages</Typography></Link>
           </Box>
 
+          <Link href="/">
           <Box
             className="logo"
             sx={{
-              display: 'flex', alignItems: 'flex-end', flex: '1', justifyContent: 'center',
+              display: 'flex', alignItems: 'flex-end', flex: '1', justifyContent: 'center', '&:hover': {cursor: 'pointer'}
             }}
           >
             <Typography variant="h1" sx={{ backgroundColor: '#00AAA1', fontSize: { md: '1.688rem', sm: '2.5rem', xs: '2rem' }, fontWeight: '600' }}>Note</Typography>
@@ -191,6 +202,7 @@ export default function Navbar() {
             }}
             />
           </Box>
+          </Link>
 
           <Box
             className="right-menu"
@@ -221,25 +233,25 @@ export default function Navbar() {
                 </React.Fragment>
               ))}
             </Box>
-            <Search>
+            <Search sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' }}}>
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={(e) => { handleSearch(e); }}
                 sx={{color:'lightslategray'}}
               />
-              <Link sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={() => { passSearchValue(); }} href="/search-result"><img className="search-icon" src="/icon/search.svg" alt="" /></Link>
+              <Link href="/search-result"><Box sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={() => { passSearchValue(); }}><img className="search-icon" src="/icon/search.svg" alt="" /></Box></Link>
             </Search>
 
-            <Link href="/write" sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' } }}><img className="edit-icon" src="/icon/edit.svg" alt="" /></Link>
-            <Typography sx={{ margin: { md: '0 1rem', sm: '0 1.6rem', xs: '.6rem' } }}><Link href="/contact" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.4rem', md: '1rem'}, fontWeight: 400 }}>Contact</Link></Typography>
-            <Box className="categories-container" sx={{ position: 'relative', margin: { sm: '0 1.3rem', xs: '0 .6rem' } }}>
-              <Link href="/#" underline="none" sx={{ color: '#333333', fontSize: { sm: '1.4rem', md: '0.938rem' }, fontWeight: 400 }}>{currentLanguage}</Link>
+            <Link href="/write"><Box sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' }, '&:hover': {cursor: 'pointer'} }}><img className="edit-icon" src="/icon/edit.svg" alt="" /></Box></Link>
+           <Link href="/contact"><Typography sx={{ margin: { md: '0 1rem', sm: '0 1.6rem', xs: '.6rem' },color: '#333333', fontSize: { sm: '1.4rem', md: '1rem'}, fontWeight: 400, '&:hover': {cursor: 'pointer'} }}> Contact</Typography></Link>
+            <Box className="categories-container" sx={{ position: 'relative', display: 'flex', margin: { md: '0 1rem', sm: '0 1.6rem', xs: '.6rem' } }}>
+              <Link href="/#"><Typography sx={{ color: '#333333', fontSize: { sm: '1.4rem', md: '0.938rem' }, fontWeight: 400, '&:hover': {cursor: 'pointer'} }}>{currentLanguage}</Typography></Link>
               <img className="dropdown-icon" src="/icon/arrow-down.svg" alt="" />
               <List className="categories-list">
-                <Link href="/#" onClick={() => { changeLanguage('Ch', event); }} underline="none" sx={{ color: '#333333' }}><ListItem className="categories-item" sx={{ justifyContent:'center', fontSize:{xs:'.9rem',sm:'1.2rem',backgroundColor: 'white',padding:'10px 0'}}}>Ch</ListItem></Link>
-                <Link href="/#" onClick={() => { changeLanguage('Id', event); }} underline="none" sx={{ color: '#333333' }}><ListItem className="categories-item" sx={{ justifyContent:'center', fontSize:{xs:'.9rem',sm:'1.2rem',backgroundColor: 'white',padding:'10px 0'}}}>Id</ListItem></Link>
-                <Link href="/#" onClick={() => { changeLanguage('My', event); }} underline="none" sx={{ color: '#333333' }}><ListItem className="categories-item" sx={{ justifyContent:'center', fontSize:{xs:'.9rem',sm:'1.2rem',backgroundColor: 'white',padding:'10px 0'}}}>My</ListItem></Link>
+                <ListItem onClick={(event) => { changeLanguage('Ch', event);}} className="categories-item" sx={{ justifyContent:'center', color: '#333333', fontSize:{xs:'.9rem',sm:'1.2rem',md:'0.9rem'},backgroundColor: 'white',padding:'6px 0', '&:hover': {cursor: 'pointer'}}}>Ch</ListItem>
+                <ListItem onClick={(event) => { changeLanguage('Id', event); }} className="categories-item" sx={{ justifyContent:'center', color: '#333333', fontSize:{xs:'.9rem',sm:'1.2rem',md:'0.9rem'},backgroundColor: 'white',padding:'6px 0', '&:hover': {cursor: 'pointer'}}}>Id</ListItem>
+                <ListItem  onClick={(event) => { changeLanguage('My', event); }} className="categories-item" sx={{ justifyContent:'center', color: '#333333', fontSize:{xs:'.9rem',sm:'1.2rem',md:'0.9rem'},backgroundColor: 'white',padding:'6px 0', '&:hover': {cursor: 'pointer'}}}>My</ListItem>
               </List>
             </Box>
             {/* <Box sx={{ display: 'flex' }}>

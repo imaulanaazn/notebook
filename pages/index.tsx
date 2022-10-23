@@ -14,7 +14,6 @@ import InstagramPosts from '../components/organism/InstagramPosts/InstagramPosts
 import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags';
 
 export default function Home( {featuredData, latestBlogData, popularBlogs} : any ) {
-  console.log(featuredData)
   return(
   <>
     <Navbar />

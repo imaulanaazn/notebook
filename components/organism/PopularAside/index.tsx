@@ -42,7 +42,7 @@ export default function PopularAside({ popularBlogs }:any) {
       <Box
         className="featured-card popular-aside-scrollbar"
         sx={{
-          height: { md: '70%', sm: '65%', xs: '75%' }, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflowY: 'scroll',
+          height: { md: '70%', sm: '65%', xs: '75%' }, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflowY: 'scroll', overflowX: 'hidden'
         }}
       >
         {

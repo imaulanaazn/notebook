@@ -14,7 +14,7 @@ export default function TopAuthor() {
           <Box
             className="profile-pic"
             sx={{
-              width: '4.6rem', minWidth: '4.6rem', height: '4.5rem', borderRadius: '50%', backgroundColor: '#D9D9D9', overflow: 'hidden',
+              width: '4.6rem', minWidth: '4.6rem', height: '4.5rem', borderRadius: '50%', backgroundColor: '#D9D9D9', overflow: 'hidden', '&:hover':{cursor:'pointer'}
             }}
           >
             <img src={author.profilePic} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

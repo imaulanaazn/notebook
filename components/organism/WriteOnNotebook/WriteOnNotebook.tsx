@@ -25,27 +25,27 @@ export default function WriteOnNotebook() {
         Notebook
       </Typography>
       <Typography sx={{
-        fontSize: { sm: '1.2rem', xs: '1.1rem' }, color: '#222222', fontWeight: '500', margin: '1.6rem 0',
+        fontSize: { sm: '1.2rem', xs: '1.1rem' }, color: '#222222', fontWeight: '500', margin: '1.6rem 0 .6rem',
       }}
       >
         Write on notebook is very simple
       </Typography>
       <Typography sx={{ fontSize: '0.938rem', color: '#555555' }}>Go to your mail and start typing your article with title & categories, attached your image/video file (if have).</Typography>
       <Typography sx={{
-        fontSize: { sm: '1.2rem', xs: '1.1rem' }, color: '#222222', fontWeight: '500', marginTop: '1.6rem',
+        fontSize: { sm: '1.2rem', xs: '1.1rem' }, color: '#222222', fontWeight: '500', margin: '1.6rem 0 .1rem',
       }}
       >
         type your personal information.
       </Typography>
       <Typography sx={{ fontSize: '0.938rem', color: '#555555' }}>(Name, Occupation, Address, Social media links)</Typography>
-      <Typography sx={{ fontSize: '0.938rem', color: '#555555', margin: '1.6rem 0' }}>
+      <Typography sx={{ fontSize: '1rem', color: '#555555', margin: '1.6rem 0' }}>
         Send it on:
-        <Typography variant="caption" sx={{ fontSize: { sm: '1.2rem', xs: '1.1rem' }, color: '#222222', fontWeight: '500' }}>blog.notebook@gmail.com</Typography>
+        <Typography variant="caption" sx={{ fontSize: { sm: '1.1rem', xs: '1rem' }, color: '#222222', fontWeight: '500' }}>blog.notebook@gmail.com</Typography>
       </Typography>
       <Button
         variant="outlined"
         sx={{
-          color: '#00AAA1', borderColor: '#00AAA1', textTransform: 'capitalize', padding: { sm: '.7rem 1.4rem', xs: '.2rem .6rem' }, fontWeight: '400', fontSize: { sm: '1.25rem', xs: '1.2rem' }, borderWidth: '2px', borderRadius: '8px',
+          color: '#00AAA1', borderColor: '#00AAA1', textTransform: 'capitalize', padding: { sm: '.4rem 1rem', xs: '.3rem .6rem' }, fontWeight: '400', fontSize: { sm: '1.15rem', xs: '1.1rem' }, borderWidth: '1.5px', borderRadius: '6px',
         }}
       >
         Go To Your Mail

@@ -23,7 +23,7 @@ export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
       <Box
         className="thumb"
         sx={{
-          width: { sm: '40%', xs: '100%' }, height: '13rem', backgroundColor: '#D9D9D9', borderRadius: '0.438rem',
+          width: { sm: '40%', xs: '100%' }, height: {xs:'16rem',sm:'9rem',md:'8rem',lg:'12rem'}, backgroundColor: '#D9D9D9', borderRadius: '0.438rem',
         }}
       >
         <img src={imgUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -39,7 +39,7 @@ export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { md: '1.55rem', xs: '1.4rem' }, fontStyle: 'normal', fontWeight: '600', margin: '.8rem 0',
+            fontSize: { md: '1.44rem', xs: '1.3rem' }, fontStyle: 'normal', fontWeight: '600', margin: '.8rem 0',
           }}
         >
           {title}
@@ -72,7 +72,7 @@ export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
           color: '#555555', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
         }}
         >
-          {content}
+          {content.length > 100 ? content.slice(0,150) + '...' : content}
         </Typography>
       </Box>
     </Box>

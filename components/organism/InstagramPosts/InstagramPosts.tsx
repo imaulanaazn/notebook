@@ -13,7 +13,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/bitcoin-invest.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
@@ -21,7 +21,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/chip.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
@@ -29,7 +29,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/footbal.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
@@ -37,7 +37,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/mars-explor.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
@@ -45,7 +45,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', borderRadius: '5px', backgroundColor: '#D9D9D9', position: 'relative',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', borderRadius: '5px', backgroundColor: '#D9D9D9', position: 'relative', '&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <i
@@ -59,7 +59,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/nanobot.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
@@ -67,7 +67,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/seo-writer.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
@@ -75,7 +75,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/travel.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
@@ -83,7 +83,7 @@ export default function InstagramPosts() {
         <Link
           href="/#"
           sx={{
-            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9',
+            width: '100%', height: { md: '7rem', sm: '10rem', xs: '6.5rem' }, justifySelf: 'center', overFlow: 'hidden', borderRadius: '5px', backgroundColor: '#D9D9D9','&:hover':{filter:'brightness(50%)', transition:'0.5s ease all'}
           }}
         >
           <img src="./img/traveling-tips.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />

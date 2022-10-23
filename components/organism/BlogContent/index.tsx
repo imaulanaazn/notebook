@@ -11,6 +11,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Title from '../../atoms/Title';
 import data from '../../../dummyData';
+import Link from 'next/link';
 import CommentSection from '../CommentSection';
 
 interface TabPanelProps {
@@ -35,7 +36,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Box>{children}</Box>
         </Box>
       )}
     </div>
@@ -148,7 +149,7 @@ export default function BlogContent() {
               <img src="/#" alt="" />
             </Box>
             <Typography sx={{
-              color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+              color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
             }}
             >
               Did you come here for something in particular or just general Riker-bashing?
@@ -169,7 +170,7 @@ export default function BlogContent() {
               I Created a Developer Rap Video - Here&apos;s What I Learned
             </Typography>
             <Typography sx={{
-              color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+              color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
             }}
             >
               Did you come here for something in particular or just general Riker-bashing?
@@ -216,7 +217,7 @@ export default function BlogContent() {
               </Table>
             </TableContainer>
             <Typography sx={{
-              color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+              color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
             }}
             >
               Did you come here for something in particular or just general Riker-bashing?
@@ -234,7 +235,7 @@ export default function BlogContent() {
               </p>
             </cite>
             <Typography sx={{
-              color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+              color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
             }}
             >
               Did you come here for something in particular or just general Riker-bashing?
@@ -251,7 +252,7 @@ export default function BlogContent() {
               I Created a Developer Rap Video - Here&apos;s What I Learned
             </Typography>
             <Typography sx={{
-              color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+              color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
             }}
             >
               Did you come here for something in particular or just general Riker-bashing?
@@ -277,7 +278,7 @@ export default function BlogContent() {
               </li>
             </ol>
             <Typography sx={{
-              color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+              color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
             }}
             >
               Did you come here for something in particular or
@@ -309,7 +310,7 @@ export default function BlogContent() {
                   I Created a Developer Rap Video
                 </Typography>
                 <Typography sx={{
-                  color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+                  color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
                 }}
                 >
                   Did you come here for something in particular or just general Riker-bashing?
@@ -329,7 +330,7 @@ export default function BlogContent() {
                   I Created a Developer Rap Video part 2
                 </Typography>
                 <Typography sx={{
-                  color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+                  color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
                 }}
                 >
                   Did you come here for something in particular or just general Riker-bashing?
@@ -349,7 +350,7 @@ export default function BlogContent() {
                   I Created a Developer Rap Video part 3
                 </Typography>
                 <Typography sx={{
-                  color: '#666666', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+                  color: '#666666', fontSize: {sx:'0.84rem',md:'1rem'}, fontWeight: '400', marginTop: '1.188rem',
                 }}
                 >
                   Did you come here for something in particular or just general Riker-bashing?
@@ -374,7 +375,7 @@ export default function BlogContent() {
               width: '100%', height: '1px', backgroundColor: '#D1E7E5', marginBottom: '2rem',
             }}
             />
-            <img className="blog-single-share-icon" src="icon/share.svg" alt="" />
+            <Link href="/#"><a><img className="blog-single-share-icon" src="icon/share.svg" alt="" /></a></Link>
             <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Featured" secondTitle="This Month" />
             <Box
               className="featured-card"
@@ -403,7 +404,7 @@ export default function BlogContent() {
                   >
                     {blog.label}
                   </Typography>
-                  <Typography variant="h2" sx={{ fontSize: { md: '1.55rem', sm: '1.5rem', xs: '1.4rem' }, fontStyle: 'normal', fontWeight: '600' }}>{blog.title}</Typography>
+                  <Typography variant="h2" sx={{ fontSize: { md: '1.3rem', sm: '1.4rem', xs: '1.3rem' }, fontStyle: 'normal', fontWeight: '600' }}>{blog.title}</Typography>
                   <Stack direction="row" sx={{ margin: '1.5rem 0 .6rem' }}>
                     <Stack direction="row" sx={{ alignItems: 'center' }}>
                       <img src="img/author.png" alt="" style={{ width: '1rem', height: '1rem' }} />
@@ -429,7 +430,7 @@ export default function BlogContent() {
                     </Stack>
                   </Stack>
                   <Typography sx={{
-                    color: '#555555', fontSize: '0.84rem', fontWeight: '400',
+                    color: '#555555', fontSize: {sx:'0.8rem',md:'0.9rem'}, fontWeight: '400',
                   }}
                   >
                     {blog.content}

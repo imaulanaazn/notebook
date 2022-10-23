@@ -7,20 +7,20 @@ export default function Description() {
       <Typography
         variant="h1"
         sx={{
-          fontSize: { md: '1.6rem', sm: '1.5rem', xs: '1.3rem' }, fontWeight: '500', marginBottom: '2rem',
+          fontSize: { md: '1.6rem', sm: '1.5rem', xs: '1.3rem' }, fontWeight: '600', marginBottom: '2rem',
         }}
       >
         <Typography
           variant="caption"
           sx={{
-            fontSize: { md: '1.8rem', sm: '1.5rem', xs: '1.3rem' }, fontWeight: '500', marginRight: '.4rem', backgroundColor: '#00AAA1', color: 'white',
+            fontSize: { md: '1.8rem', sm: '1.5rem', xs: '1.3rem' }, fontWeight: '600', marginRight: '.4rem', backgroundColor: '#00AAA1', color: 'white',
           }}
         >
           Notebook is a place
         </Typography>
         where you can find your perfect blogs
       </Typography>
-      <Typography sx={{ fontSize: '0.938rem', color: '#555555' }}>
+      <Typography sx={{ fontSize: '0.9rem', color: '#555555' }}>
         Dynamically underwhelm integrated outsourcing via timely models.
         Rapidiously reconceptualize visionary imperatives without 24/365 catalysts for change.
         Completely streamline functionalized models and out-of-the-box functionalities.
@@ -29,12 +29,12 @@ export default function Description() {
         Globally iterate parallel content
       </Typography>
       <Typography sx={{
-        fontSize: '1.2rem', color: '#222222', fontWeight: '500', margin: '1.6rem 0 1.2rem',
+        fontSize: '1.2rem', color: '#222222', fontWeight: '600', margin: '1.6rem 0 1.2rem',
       }}
       >
         The best ideas can change who we are.
       </Typography>
-      <Typography sx={{ fontSize: '0.938rem', color: '#555555' }}>
+      <Typography sx={{ fontSize: '0.9rem', color: '#555555' }}>
         Dynamically underwhelm integrated outsourcing via timely models.
         Rapidiously reconceptualize visionary imperatives without 24/365 catalysts for
       </Typography>

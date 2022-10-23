@@ -33,16 +33,28 @@ div.categories-container:hover .dropdown-icon{
     cursor: pointer;
 }
 
+.dropdown-icon{
+    width: 0.7rem;
+}
 
+.search-icon,.edit-icon{
+    width: 0.9rem;
+}
+
+@media screen and (max-width:1200px) {
+    .dropdown-icon{
+        width: .7rem;
+    }
+    .search-icon,.edit-icon{
+        width: 1rem;
+    }
+}
 
 @media screen and (max-width:900px) {
     .dropdown-icon{
-        width: .9rem;
+        width: .7rem;
     }
-    .moon-icon, .sun-icon{
-        width: 50%;
-    }
-    .search-icon,.edit-icon{
+    .search-icon,.edit-icon{ 
         width: 1.2rem;
     }
     .remove-overline::before{
@@ -54,9 +66,6 @@ div.categories-container:hover .dropdown-icon{
     .dropdown-icon{
         width: .6rem;
         margin-left: .3rem;
-    }
-    .moon-icon, .sun-icon{
-        width: 50%;
     }
     .search-icon,.edit-icon{
         width: 1rem;

@@ -31,7 +31,7 @@ export default function Featured({ featuredData }:any) {
               </Typography>
               <Typography variant="h2" sx={{ fontSize: { md: '1.44rem', sm: '1.6rem', xs: '1.3rem' }, fontStyle: 'normal', fontWeight: '600' }}>{blog.title}</Typography>
               <Box sx={{
-                width: '100%', height: {xs:'18rem', sm:'12rem',md:'13rem',lg:'14rem'}, backgroundColor: '#D9D9D9', borderRadius: '0.438rem', margin: '1.5rem 0 1.688rem 0', overflow: 'hidden',
+                width: '100%', height: {xs:'16rem', sm:'12rem',md:'13rem',lg:'14rem'}, backgroundColor: '#D9D9D9', borderRadius: '0.438rem', margin: '1.5rem 0 1.688rem 0', overflow: 'hidden',
               }}
               >
                 <img src={blog.urlToImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />

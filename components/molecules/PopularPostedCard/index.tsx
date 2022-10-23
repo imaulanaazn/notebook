@@ -20,7 +20,7 @@ export default function PopularPostedCard(params:PopularPostedCardProps) {
     <Box className="featured-card3" sx={{ paddingLeft: { md: '1.688rem' } }}>
       <Typography
         sx={{
-          fontWeight: '400', fontSize: '0.74rem', display: 'inline-block', backgroundColor: '#E8F3F3', color: '#666666', padding: '.1rem .7rem', borderRadius: '3px',
+          fontWeight: '400', fontSize: {xs:'0.74rem',md:'0.7rem'}, display: 'inline-block', backgroundColor: '#E8F3F3', color: '#666666', padding: '.1rem .7rem', borderRadius: '3px',
         }}
       >
         {label}
@@ -28,7 +28,7 @@ export default function PopularPostedCard(params:PopularPostedCardProps) {
       <Typography
         variant="h5"
         sx={{
-          fontSize: '1.063rem', fontStyle: 'normal', fontWeight: '500', margin: ' 0.5rem 0 1.188rem',
+          fontSize: {xs:'1.063rem',md:'1rem'}, fontStyle: 'normal', fontWeight: '500', margin: ' 0.5rem 0 1.188rem',
         }}
       >
         {title}
@@ -37,7 +37,7 @@ export default function PopularPostedCard(params:PopularPostedCardProps) {
         <Stack direction="row">
           <img src={profilePic} alt="" style={{ width: '1rem', height: '1rem' }} />
           <Typography sx={{
-            color: '#777777', fontWeight: '400', fontSize: '0.74rem', margin: '0 .5rem',
+            color: '#777777', fontWeight: '400', fontSize: {xs:'0.74rem',md:'0.7rem'}, margin: '0 .5rem',
           }}
           >
             {name}
@@ -46,7 +46,7 @@ export default function PopularPostedCard(params:PopularPostedCardProps) {
         <Stack direction="row" sx={{ borderLeft: '1px solid #999999', borderRight: '1px solid #999999', padding: '0 .5rem' }}>
           <img src="icon/calendar.svg" alt="" style={{ width: '.8rem' }} />
           <Typography sx={{
-            color: '#777777', fontWeight: '400', fontSize: '0.74rem', marginLeft: '.5rem',
+            color: '#777777', fontWeight: '400', fontSize: {xs:'0.74rem',md:'0.7rem'}, marginLeft: '.5rem',
           }}
           >
             {date}
@@ -54,17 +54,17 @@ export default function PopularPostedCard(params:PopularPostedCardProps) {
         </Stack>
         <Stack direction="row">
           <img src="icon/clock.svg" alt="" style={{ width: '.8rem', margin: '0 .5rem' }} />
-          <Typography sx={{ color: '#777777', fontWeight: '400', fontSize: '0.74rem' }}>
+          <Typography sx={{ color: '#777777', fontWeight: '400', fontSize: {xs:'0.74rem',md:'0.7rem'} }}>
             {timeToRead}
             Min. To Read
           </Typography>
         </Stack>
       </Stack>
       <Typography sx={{
-        color: '#555555', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
+        color: '#555555', fontSize: {xs:'0.84rem',md:'0.8rem'}, fontWeight: '400', marginTop: '1.188rem',
       }}
       >
-        {content.length < 200 ? content : `${content.substring(0, 120)}....`}
+        {content.length < 200 ? content : `${content.substring(0, 100)}....`}
       </Typography>
     </Box>
   );
