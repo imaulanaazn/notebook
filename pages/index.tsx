@@ -9,11 +9,12 @@ import TopAuthor from '../components/organism/TopAuthor';
 import RecentlyPosted from '../components/organism/RecentlyPosted';
 import Ads from '../components/organism/Ads';
 import Categories from '../components/organism/Categories/Categories';
-import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
 import InstagramPosts from '../components/organism/InstagramPosts/InstagramPosts';
 import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags';
+import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
 
 export default function Home( {featuredData, latestBlogData, popularBlogs} : any ) {
+  console.log(popularBlogs)
   return(
   <>
     <Navbar />

@@ -6,11 +6,12 @@ import PopularPostedCard from '../../molecules/PopularPostedCard';
 import Title from '../../atoms/Title';
 
 export default function PopularAside({ popularBlogs }:any) {
-  const totalData = popularBlogs.articles.slice(0, 10).length;
+  const totalData = popularBlogs?.articles?.slice(0, 10).length;
   const dataPerPage:number = 2;
   const totalPage = Math.ceil(totalData / dataPerPage);
   const [active, setActive] = useState(1);
   const [buttons, setButtons] = useState([] as any);
+  console.log(popularBlogs)
 
   function setActiveBtn(e:any) {
     setActive(Number(e.target.getAttribute('id')));
@@ -46,7 +47,7 @@ export default function PopularAside({ popularBlogs }:any) {
         }}
       >
         {
-        popularBlogs.articles.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
+        popularBlogs?.articles?.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
           .map((data:any, index:number) => (
             <PopularPostedCard
               key={`card${index}`}
@@ -59,7 +60,6 @@ export default function PopularAside({ popularBlogs }:any) {
               content={data.description}
             />
           ))
-
         }
       </Box>
 

@@ -14,7 +14,7 @@ export default function Featured({ featuredData }:any) {
             display: 'grid', gridTemplateColumns: { md: 'repeat(auto-fit, minmax(270px, .8fr))', xs: 'repeat(auto-fit, minmax(270px, 1fr))' }, marginBottom: '5rem', gridGap: { lg:'3rem 1.5rem',md: '1.5rem', sm: '2.5rem 1.7rem', xs: '3rem' }, justifyContent: 'center',
           }}
         >
-          {featuredData.articles.slice(0, 13).map((blog:any, index:number) => (
+          {featuredData?.articles?.slice(0, 13).map((blog:any, index:number) => (
             <Box
               key={`featured${index}`}
               className="featured-card1"

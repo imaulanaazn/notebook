@@ -2,7 +2,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { useState, useRef} from 'react';
+import { useState} from 'react';
 import {
   Typography, Box, createTheme, ThemeProvider,
 } from '@mui/material';
@@ -74,11 +74,11 @@ const theme = createTheme({
 
 export default function Navbar() {
   const dispatch = useDispatch();
-  const inputRef = useRef()
+  const [searchTempVal,setSearchTempVal] = useState('');
   const router = useRouter()
-  const setSearchValue = (event) => {
+  const setSearchValue = (event:React.SyntheticEvent) => {
     router.pathname === '/search-result' ? event.preventDefault() : null;
-    const searchvalue = inputRef.current.children[0].value;
+    const searchvalue = searchTempVal;
     dispatch(setSearchedWord({searchValue : searchvalue}))
   };
 
@@ -240,7 +240,8 @@ export default function Navbar() {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
-                ref={inputRef}
+                onChange={(event)=>setSearchTempVal(event.target.value)}
+                onKeyDown={(event)=>{event.key === "Enter"? setSearchValue(event) : null; router.push('/search-result')}}
                 sx={{color:'lightslategray'}}
               />
               <Link href="/search-result"><Box sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={(event) => { setSearchValue(event); }}><img className="search-icon" src="/icon/search.svg" alt="" /></Box></Link>

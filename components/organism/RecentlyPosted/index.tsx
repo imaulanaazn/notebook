@@ -10,7 +10,7 @@ import RecentlyPostedCard from '../../molecules/RecentlyPostedCard';
 export default function RecentlyPosted({ latestBlogData }:any) {
   const [page, setPage] = useState(1);
   const PER_PAGE = 9;
-
+  console.log(latestBlogData);
   const DATA = usePagination(latestBlogData.articles, PER_PAGE);
   const handleChange = (e:any, p:number) => {
     setPage(p);
@@ -23,7 +23,7 @@ export default function RecentlyPosted({ latestBlogData }:any) {
         {DATA.currentData().map((blog:any, i:number) => {
           if (i === 2 && page === 1) {
             return (
-              <>
+              <Box key={blog.url}>
                 <RecentlyPostedCard
                   label={blog.source.name}
                   title={blog.title}
@@ -52,12 +52,12 @@ export default function RecentlyPosted({ latestBlogData }:any) {
                     Write on notebook
                   </Link>
                 </Box>
-              </>
+              </Box>
             );
           }
           return (
             <RecentlyPostedCard
-              key={`recently${i}`}
+              key={blog.url}
               label={blog.source.name}
               title={blog.title}
               name={blog.author}

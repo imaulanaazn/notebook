@@ -7,8 +7,9 @@ import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
 
 
 export default function SearchResult() {
-  const {searchedWord} = useSelector((state) => state.search)
-  const [cardData,setCardData] = useState('');
+  const {searchedWord}:any = useSelector((state:string) => state.search)
+
+  const [cardData,setCardData]:any[] = useState('');
   useEffect(() => {
       async function fetchData(){
       const res = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
