@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Box, Typography } from '@mui/material';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
+import { useSelector } from 'react-redux';
 import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
 
-export default function SearchResult({data}:any) {
+
+export default function SearchResult() {
+  const {searchedWord} = useSelector((state) => state.search)
+  const [cardData,setCardData] = useState('');
+  useEffect(() => {
+      async function fetchData(){
+      const res = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
+      const data = await res.json()
+      setCardData(data)
+    }
+    fetchData();
+  }, [searchedWord])
+  
   return (
     <>
       <Navbar />
@@ -16,7 +29,7 @@ export default function SearchResult({data}:any) {
           >
             search result for
             {' '}
-            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>Bitcoin</Typography>
+            <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>{searchedWord}</Typography>
           </Typography>
           <Box sx={{
             width: '100%', height: '1px', backgroundColor: '#C4C4C4', transform: 'translateY(-2px)',
@@ -24,13 +37,14 @@ export default function SearchResult({data}:any) {
           />
         </Box>
         <Box className="blogs" sx={{ width: { md: '70%', xs: '100%' } }}>
-          {data?.articles?.map((blog:any, keyValue:number) => (
+          {cardData?.articles?.map((blog:any, keyValue:number) => (
             <RecentlyPostedCard
               key={`posted${keyValue}`}
               label={blog.source.name}
               title={blog.title}
               name={blog.author}
               date="12 december 2012"
+              imgUrl={blog.urlToImage}
               content={blog.description}
             />
           ))}
@@ -39,13 +53,4 @@ export default function SearchResult({data}:any) {
       <Footer />
     </>
   );
-}
-
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://newsapi.org/v2/everything?q=bit&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
-  const data = await res.json()
-
-  // Pass data to the page via props
-  return { props: { data } }
 }

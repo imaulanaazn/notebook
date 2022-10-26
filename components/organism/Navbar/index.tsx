@@ -2,7 +2,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { useState } from 'react';
+import { useState, useRef} from 'react';
 import {
   Typography, Box, createTheme, ThemeProvider,
 } from '@mui/material';
@@ -15,6 +15,9 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import InputBase from '@mui/material/InputBase';
 import Link from 'next/link';
+import {useRouter} from 'next/router';
+import {useDispatch} from 'react-redux';
+import {setSearchedWord} from '../../../redux/slices/searchSlice'; 
 
 type Anchor = 'left';
 
@@ -70,13 +73,13 @@ const theme = createTheme({
 });
 
 export default function Navbar() {
-  const [searchValue, setSearchValue] = useState('');
-  const handleSearch = (e:any) => {
-    setSearchValue(e.target.value);
-  };
-
-  const passSearchValue = () => {
-    sessionStorage.setItem('searchValue', searchValue);
+  const dispatch = useDispatch();
+  const inputRef = useRef()
+  const router = useRouter()
+  const setSearchValue = (event) => {
+    router.pathname === '/search-result' ? event.preventDefault() : null;
+    const searchvalue = inputRef.current.children[0].value;
+    dispatch(setSearchedWord({searchValue : searchvalue}))
   };
 
   const [currentLanguage, setCurrentLanguage] = useState('En');
@@ -84,7 +87,7 @@ export default function Navbar() {
     event.preventDefault();
     setCurrentLanguage(lang);
   };
-  console.log(currentLanguage)
+  
   const [state, setState] = React.useState({
     left: false,
   });
@@ -237,10 +240,10 @@ export default function Navbar() {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
-                onChange={(e) => { handleSearch(e); }}
+                ref={inputRef}
                 sx={{color:'lightslategray'}}
               />
-              <Link href="/search-result"><Box sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={() => { passSearchValue(); }}><img className="search-icon" src="/icon/search.svg" alt="" /></Box></Link>
+              <Link href="/search-result"><Box sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={(event) => { setSearchValue(event); }}><img className="search-icon" src="/icon/search.svg" alt="" /></Box></Link>
             </Search>
 
             <Link href="/write"><Box sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.6rem' }, '&:hover': {cursor: 'pointer'} }}><img className="edit-icon" src="/icon/edit.svg" alt="" /></Box></Link>

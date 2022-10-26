@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import Title from '../../atoms/Title';
 import { authors } from '../../../dummyData';
+import Image from 'next/image';
 
 export default function TopAuthor() {
   return (
@@ -17,7 +18,9 @@ export default function TopAuthor() {
               width: '4.6rem', minWidth: '4.6rem', height: '4.5rem', borderRadius: '50%', backgroundColor: '#D9D9D9', overflow: 'hidden', '&:hover':{cursor:'pointer'}
             }}
           >
-            <img src={author.profilePic} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <Box style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative' }}>
+            <Image src={author.profilePic} alt=""  width={300} height={300} objectFit="cover" quality={1}/>
+            </Box>
           </Box>
           <Box className="autor-info" sx={{ marginLeft: '1.5rem' }}>
             <Typography variant="h5" sx={{ fontSize: '1rem', fontWeight: '500' }}>
