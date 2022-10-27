@@ -9,15 +9,18 @@ import Script from 'next/script';
 export default function SearchResult() {
   const {searchedWord}:any = useSelector((state:string) => state.search)
   const [cardData,setCardData]:any[] = useState('');
+  const [isLoading,setIsloading] = useState(false)
   useEffect(() => {
+      setIsloading(true);
       async function fetchData(){
-      const res = await fetch(`https://newsapi.org/v2/everything?q=${searchedWord}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
+      const res = await fetch(`https://gnews.io/api/v4/search?q=${searchedWord}&token=${process.env.NEXT_PUBLIC_GNEWSAPI_KEY}&lang=en`)
       const data = await res.json()
-      setCardData(data)
+      setCardData(data);
+      setIsloading(false);
     }
     fetchData();
   }, [searchedWord])
-  
+
   return (
     <>
       <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>
@@ -37,19 +40,22 @@ export default function SearchResult() {
           }}
           />
         </Box>
+        {
+          isLoading ? <Typography>Loading...</Typography> :
         <Box className="blogs" sx={{ width: { md: '70%', xs: '100%' } }}>
           {cardData?.articles?.map((blog:any, keyValue:number) => (
             <RecentlyPostedCard
               key={`posted${keyValue}`}
-              label={blog.source.name}
+              label={blog.source.name.split(' ')[0]}
               title={blog.title}
-              name={blog.author}
-              date="12 december 2012"
-              imgUrl={blog.urlToImage}
-              content={blog.description}
+              name={blog.source.name}
+              date={new Date(blog.publishedAt).toDateString()}
+              imgUrl={blog.image}
+              content={blog.content}
             />
           ))}
         </Box>
+        }
       </Box>
       <Footer />
     </>
