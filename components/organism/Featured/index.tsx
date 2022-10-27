@@ -52,8 +52,7 @@ export default function Featured({ featuredData }:any) {
                     color: '#777777', fontWeight: '400', fontSize: '0.8rem', marginLeft: '.5rem',
                   }}
                   >
-                    hello
-                    {/* {blog.date} */}
+                    {new Date(blog.publishedAt).toDateString()}
                   </Typography>
                 </Stack>
                 <Stack direction="row">

@@ -54,7 +54,7 @@ export default function PopularAside({ popularBlogs }:any) {
               title={data.title}
               profilePic="img/author.png"
               name={data.author}
-              date="10 june 1999"
+              date={new Date(data.publishedAt).toDateString()}
               timeToRead={10}
               content={data.description}
             />

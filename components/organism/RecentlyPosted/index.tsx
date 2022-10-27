@@ -27,7 +27,7 @@ export default function RecentlyPosted({ latestBlogData }:any) {
                   label={blog.source.name}
                   title={blog.title}
                   name={blog.author}
-                  date="12 june 2021"
+                  date={new Date(blog.publishedAt).toDateString()}
                   content={blog.description}
                   imgUrl={blog.urlToImage}
                 />
