@@ -3,10 +3,12 @@ import { Box, Typography } from '@mui/material';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
 import CategoriesCard from '../components/atoms/CategoriesCard';
+import Script from 'next/script';
 
 export default function Categories() {
   return (
-    <>
+    <> 
+      <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>
       <Navbar />
       <Box sx={{ padding: { sm: '4rem 4rem 5rem', xs: '3rem 2rem 5rem' } }}>
         <Typography

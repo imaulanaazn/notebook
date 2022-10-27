@@ -12,10 +12,12 @@ import Categories from '../components/organism/Categories/Categories';
 import InstagramPosts from '../components/organism/InstagramPosts/InstagramPosts';
 import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags';
 import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
+import Script from 'next/script';
 
 export default function Home( {featuredData, latestBlogData, popularBlogs} : any ) {
   return(
   <>
+    <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>
     <Navbar />
     <main>
       <Box

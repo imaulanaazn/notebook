@@ -4,11 +4,10 @@ import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
 import { useSelector } from 'react-redux';
 import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
-
+import Script from 'next/script';
 
 export default function SearchResult() {
   const {searchedWord}:any = useSelector((state:string) => state.search)
-
   const [cardData,setCardData]:any[] = useState('');
   useEffect(() => {
       async function fetchData(){
@@ -21,6 +20,7 @@ export default function SearchResult() {
   
   return (
     <>
+      <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>
       <Navbar />
       <Box sx={{ margin: { sm: '4rem 3rem', xs: '3rem 1.5rem' } }}>
         <Box sx={{ marginBottom: { sm: '3rem', xs: '2rem' } }}>

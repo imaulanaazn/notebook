@@ -7,10 +7,12 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
+import Script from 'next/script';
 
 export default function faq() {
   return (
     <>
+      <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>
       <Navbar />
       <Box sx={{ padding: { md: '4rem 0', sm: '4rem 2rem', xs: '3rem 1rem' }, textAlign: 'center' }}>
         <Typography

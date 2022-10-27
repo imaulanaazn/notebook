@@ -4,10 +4,12 @@ import ContactForm from '../components/organism/ContactForm';
 import ContactDetails from '../components/organism/ContactDetails';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
+import Script from 'next/script';
 
 export default function ContactUs() {
   return (
     <>
+      <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>
       <Navbar />
       <Box sx={{ margin: { sm: '5rem 4rem', xs: '4rem 1rem' } }}>
         <Typography
