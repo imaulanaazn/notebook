@@ -10,7 +10,6 @@ import RecentlyPostedCard from '../../molecules/RecentlyPostedCard';
 export default function RecentlyPosted({ latestBlogData }:any) {
   const [page, setPage] = useState(1);
   const PER_PAGE = 9;
-  console.log(latestBlogData);
   const DATA = usePagination(latestBlogData.articles, PER_PAGE);
   const handleChange = (e:any, p:number) => {
     setPage(p);

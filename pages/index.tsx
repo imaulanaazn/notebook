@@ -14,7 +14,6 @@ import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags
 import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
 
 export default function Home( {featuredData, latestBlogData, popularBlogs} : any ) {
-  console.log(popularBlogs)
   return(
   <>
     <Navbar />

@@ -11,7 +11,6 @@ export default function PopularAside({ popularBlogs }:any) {
   const totalPage = Math.ceil(totalData / dataPerPage);
   const [active, setActive] = useState(1);
   const [buttons, setButtons] = useState([] as any);
-  console.log(popularBlogs)
 
   function setActiveBtn(e:any) {
     setActive(Number(e.target.getAttribute('id')));
