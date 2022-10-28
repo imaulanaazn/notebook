@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  Box, Stack, Typography, Button, Link,
+  Box, Stack, Typography, Button,
 } from '@mui/material';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -55,11 +56,11 @@ export default function Footer() {
           >
             Blogs
           </Typography>
-          <Link underline="none" href="#navbar" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Travel</Link>
-          <Link underline="none" href="#navbar" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Technology</Link>
-          <Link underline="none" href="#navbar" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Lifestyle</Link>
-          <Link underline="none" href="#navbar" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Fashion</Link>
-          <Link underline="none" href="#navbar" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Bussines</Link>
+          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Travel</Typography></Link>
+          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Technology</Typography></Link>
+          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Lifestyle</Typography></Link>
+          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Fashion</Typography></Link>
+          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Bussines</Typography></Link>
         </Stack>
       </Stack>
       {/* QUICK LINKS */}
@@ -73,10 +74,10 @@ export default function Footer() {
           >
             Quick Links
           </Typography>
-          <Link underline="none" href="/faq" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>FAQ</Link>
-          <Link underline="none" href="/#" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Terms & conditions</Link>
-          <Link underline="none" href="/#" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>support</Link>
-          <Link underline="none" href="/#" sx={{ fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>privacy policy</Link>
+          <Link  href="/faq"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>FAQ</Typography></Link>
+          <Link  href="/#"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Terms & conditions</Typography></Link>
+          <Link  href="/#"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>support</Typography></Link>
+          <Link  href="/#"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>privacy policy</Typography></Link>
         </Stack>
       </Stack>
       {/* SUBSCRIBE */}
@@ -95,7 +96,7 @@ export default function Footer() {
             variant="contained"
             disableElevation
             sx={{
-              backgroundColor: '#00AAA1', fontSize: '0.84rem', fontWeight: '400', textTransform: 'capitalize', borderTopLeftRadius: '0', borderBottomLeftRadius: '0',
+              '&:hover':{backgroundColor: '#50bdb8'}, backgroundColor: '#00AAA1', fontSize: '0.84rem', fontWeight: '400', textTransform: 'capitalize', borderTopLeftRadius: '0', borderBottomLeftRadius: '0',
             }}
           >
             Subscribe
@@ -111,44 +112,44 @@ export default function Footer() {
         </Typography>
         <Stack direction="row">
           <Link
-            underline="none"
             className="homeSocmed"
             href="/#"
-            sx={{
-              width: '1.7rem', height: '1.7rem', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
-            }}
           >
+            <Box sx={{
+              '&:hover':{color:'#00AAA1', cursor:'pointer', borderColor: '#00AAA1'}, width: '1.7rem', height: '1.7rem',color:'#555', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
+            }}>
             <i className="fa-brands fa-facebook-f" />
+            </Box>
           </Link>
           <Link
-            underline="none"
             className="homeSocmed"
             href="/#"
-            sx={{
-              width: '1.7rem', height: '1.7rem', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
-            }}
           >
+            <Box sx={{
+              '&:hover':{color:'#00AAA1', cursor:'pointer', borderColor: '#00AAA1'}, width: '1.7rem', height: '1.7rem',color:'#555', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
+            }}>
             <i className="fa-brands fa-twitter" />
+            </Box>
           </Link>
           <Link
-            underline="none"
             className="homeSocmed"
             href="/#"
-            sx={{
-              width: '1.7rem', height: '1.7rem', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
-            }}
           >
+            <Box sx={{
+              '&:hover':{color:'#00AAA1', cursor:'pointer', borderColor: '#00AAA1'}, width: '1.7rem', height: '1.7rem',color:'#555', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
+            }}>
             <i className="fa-brands fa-instagram" />
+            </Box>
           </Link>
           <Link
-            underline="none"
             className="homeSocmed"
             href="/#"
-            sx={{
-              width: '1.7rem', height: '1.7rem', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
-            }}
           >
+            <Box sx={{
+              '&:hover':{color:'#00AAA1', cursor:'pointer', borderColor: '#00AAA1'}, width: '1.7rem', height: '1.7rem',color:'#555', border: '1px solid #C4C4C4', borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1rem',
+            }}>
             <i className="fa-brands fa-pinterest" />
+            </Box>
           </Link>
         </Stack>
       </Box>
