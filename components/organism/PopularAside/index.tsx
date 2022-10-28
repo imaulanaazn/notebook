@@ -59,7 +59,7 @@ export default function PopularAside({ popularBlogs }:any) {
               content={data.description}
             />
           ))
-        }
+          }
       </Box>
 
       <Stack className="pagination-button" direction="row" sx={{ height: { md: '15%', xs: '13%' }, justifyContent: 'center', alignItems: 'center' }}>
