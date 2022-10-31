@@ -7,6 +7,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     // BLOG FOOTER DESCRIPTION
+    <>
     <Box sx={{
       padding: { md: '7rem  3rem  ', sm: '5.5rem  3rem', xs: '3rem 1.5rem' }, backgroundColor: '#F2F8F7', display: 'grid', gridRowGap: { sm: '4rem', xs: '2rem' }, gridTemplateColumns: 'repeat(auto-fit, minmax(14rem, 1fr))', textAlign: { md: 'left', sm: 'center' },
     }}
@@ -154,5 +155,18 @@ export default function Footer() {
         </Stack>
       </Box>
     </Box>
+    <div
+    className="credits"
+    style={{
+      width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center',
+    }}
+  >
+    <p style={{ borderBottom: '1px dashed black' }}>
+      Built by
+      {' '}
+      <a target="_blank" href="https://irham-maulana.netlify.app" style={{ color: 'blue' }} rel="noreferrer">Irham Maulana </a>
+    </p>
+  </div>
+    </>
   );
 }
