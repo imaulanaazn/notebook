@@ -8,6 +8,7 @@ import usePagination from './Pagination';
 import RecentlyPostedCard from '../../molecules/RecentlyPostedCard';
 
 export default function RecentlyPosted({ latestBlogData }:any) {
+  console.log(latestBlogData)
   const [page, setPage] = useState(1);
   const PER_PAGE = 9;
   const DATA = usePagination(latestBlogData.articles, PER_PAGE);
@@ -27,9 +28,11 @@ export default function RecentlyPosted({ latestBlogData }:any) {
                   label={blog.source.name}
                   title={blog.title}
                   name={blog.author}
-                  date={new Date(blog.publishedAt).toDateString()}
-                  content={blog.description}
+                  date={new Date(blog.publishedAt).toLocaleDateString()}
+                  desc={blog.description}
                   imgUrl={blog.urlToImage}
+                  url={blog.url}
+                  timeToRead={Math.round(blog.content.split(" ").length / 4)}
                 />
                 <Box
                   className="write-box"
@@ -60,9 +63,11 @@ export default function RecentlyPosted({ latestBlogData }:any) {
               label={blog.source.name}
               title={blog.title}
               name={blog.author}
-              date="12 june 2021"
-              content={blog.description}
+              date={new Date(blog.publishedAt).toLocaleDateString()}
+              desc={blog.description}
               imgUrl={blog.urlToImage}
+              url={blog.url}
+              timeToRead={Math.round(blog.content.split(" ").length / 4)}
             />
           );
         })}

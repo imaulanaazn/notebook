@@ -6,14 +6,17 @@ interface RecentlyPostedCardProps{
   title : string,
   name : string,
   date : string,
-  content : string,
+  desc : string,
   imgUrl : string,
+  timeToRead: number
+  url: string
 }
 export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
   const {
-    label, title, name, date, content, imgUrl,
+    label, title, name, date, desc, imgUrl, timeToRead, url
   } = param;
   return (
+    <a href={url} target="_blank" rel="noreferrer">
     <Box
       className="blog"
       sx={{
@@ -46,7 +49,6 @@ export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
         </Typography>
         <Stack direction="row">
           <Stack direction="row">
-            <img src="img/author.png" alt="" style={{ width: '1rem', height: '1rem' }} />
             <Typography sx={{
               color: '#777777', fontWeight: '400', fontSize: '0.74rem', margin: '0 .5rem',
             }}
@@ -54,10 +56,10 @@ export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
               {name}
             </Typography>
           </Stack>
-          <Stack direction="row" sx={{ borderLeft: '1px solid #999999', borderRight: '1px solid #999999', padding: '0 .5rem' }}>
+          <Stack direction="row" sx={{ borderLeft: '1px solid #999999', borderRight: '1px solid #999999', padding: '0 .5rem',alignItems: 'center' }}>
             <img src="icon/calendar.svg" alt="" style={{ width: '.8rem' }} />
             <Typography sx={{
-              color: '#777777', fontWeight: '400', fontSize: '0.74rem', marginLeft: '.5rem',
+              color: '#777777', fontWeight: '400', fontSize: '0.74rem', marginLeft: '.5rem'
             }}
             >
               {date}
@@ -65,16 +67,17 @@ export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
           </Stack>
           <Stack direction="row">
             <img src="icon/clock.svg" alt="" style={{ width: '.8rem', margin: '0 .5rem' }} />
-            <Typography sx={{ color: '#777777', fontWeight: '400', fontSize: '0.74rem' }}>3 Min. To Read</Typography>
+            <Typography sx={{ color: '#777777', fontWeight: '400', fontSize: '0.74rem' }}>{timeToRead} Min. To Read</Typography>
           </Stack>
         </Stack>
         <Typography sx={{
           color: '#555555', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
         }}
         >
-          {content.length > 100 ? content.slice(0,150) + '...' : content}
+          {desc.length > 100 ? desc.slice(0,150) + '...' : desc}
         </Typography>
       </Box>
     </Box>
+    </a>
   );
 }

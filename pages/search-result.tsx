@@ -51,7 +51,9 @@ export default function SearchResult() {
               name={blog.source.name}
               date={new Date(blog.publishedAt).toDateString()}
               imgUrl={blog.image}
-              content={blog.content}
+              url={blog.url}
+              desc={blog.desc}
+              timeToRead={Math.round(blog.content.split(" ").length / 4)}
             />
           ))}
         </Box>

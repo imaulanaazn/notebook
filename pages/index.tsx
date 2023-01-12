@@ -45,10 +45,11 @@ export default function Home( {featuredData, latestBlogData, popularBlogs} : any
   </>
 )}
 export async function getServerSideProps() {
+  const currentDate = new Date().toISOString();
   // Fetch data from external API
   const [featuredRes, latestBlogRes, popularBlogRes] = await Promise.all([
     fetch(`https://newsapi.org/v2/everything?q=featured&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
-    fetch(`https://newsapi.org/v2/everything?q=recently-posted&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+    fetch(`https://newsapi.org/v2/everything?q=recently-posted&from=${currentDate.split('-')[0]+"-"+currentDate.split('-')[1]}-01&to=${currentDate}&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
     fetch(`https://newsapi.org/v2/everything?q=recently-posted&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
   ]);
   const [featuredData, latestBlogData, popularBlogs] = await Promise.all([
