@@ -14,7 +14,7 @@ interface PopularPostedCardProps{
 
 export default function PopularPostedCard(params:PopularPostedCardProps) {
   const {
-    label, title, profilePic, name, date, timeToRead, content,
+    label, title, name, date, timeToRead, content,
   } = params;
   return (
     <Box className="featured-card3" sx={{ paddingLeft: { md: '1.688rem' } }}>
@@ -35,7 +35,6 @@ export default function PopularPostedCard(params:PopularPostedCardProps) {
       </Typography>
       <Stack direction="row">
         <Stack direction="row">
-          <img src={profilePic} alt="" style={{ width: '1rem', height: '1rem' }} />
           <Typography sx={{
             color: '#777777', fontWeight: '400', fontSize: {xs:'0.74rem',md:'0.7rem'}, margin: '0 .5rem',
           }}
