@@ -49,10 +49,10 @@ export default function SearchResult() {
               label={blog.source.name.split(' ')[0]}
               title={blog.title}
               name={blog.source.name}
-              date={new Date(blog.publishedAt).toDateString()}
+              date={new Date(blog.publishedAt).toLocaleDateString()}
               imgUrl={blog.image}
               url={blog.url}
-              desc={blog.desc}
+              desc={blog.description}
               timeToRead={Math.round(blog.content.split(" ").length / 4)}
             />
           ))}
