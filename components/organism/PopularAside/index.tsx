@@ -52,7 +52,7 @@ export default function PopularAside({ popularBlogs }:any) {
               key={`card${index}`}
               label={data.source.name}
               title={data.title}
-              profilePic="img/author.png"
+              url={data.url}
               name={data.author}
               date={new Date(data.publishedAt).toLocaleDateString()}
               timeToRead={Math.round(data.content.split(" ").length / 4)}

@@ -4,19 +4,19 @@ import { Box, Typography, Stack } from '@mui/material';
 interface PopularPostedCardProps{
   label:string,
    title:string,
-   profilePic:string,
    name:string,
    date:string,
    timeToRead:number,
    content:string,
-
+  url: string
 }
 
 export default function PopularPostedCard(params:PopularPostedCardProps) {
   const {
-    label, title, name, date, timeToRead, content,
+    label, title, name, date, timeToRead, content, url
   } = params;
   return (
+    <a href={url} target="_blank" rel="noreferrer">
     <Box className="featured-card3" sx={{ paddingLeft: { md: '1.688rem' } }}>
       <Typography
         sx={{
@@ -66,5 +66,6 @@ export default function PopularPostedCard(params:PopularPostedCardProps) {
         {content.length < 200 ? content : `${content.substring(0, 100)}....`}
       </Typography>
     </Box>
+    </a>
   );
 }
