@@ -9,7 +9,8 @@ import { useState } from 'react';
 
 export default function Footer() {
   const [email,setEmail] = useState('')
-  function subscribe(){
+  function subscribe(e:React.FormEvent<HTMLFormElement>){
+    e.preventDefault();
     toast("Subscribtion success");
     setEmail('')
   }
@@ -100,7 +101,7 @@ export default function Footer() {
         >
           Subscribe for newsletter
         </Typography>
-        <form onSubmit={()=>{subscribe()}}>
+        <form onSubmit={(e)=>{subscribe(e)}}>
         <Stack direction="row">
           <input type="email" required placeholder="Your Email" className="subscribe-field" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
           <Button
