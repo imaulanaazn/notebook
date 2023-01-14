@@ -7,11 +7,13 @@ import Title from '../../atoms/Title';
 import usePagination from './Pagination';
 import RecentlyPostedCard from '../../molecules/RecentlyPostedCard';
 
-export default function RecentlyPosted({ latestBlogData }:any) {
+import { newsApiArticleProps } from '../Featured';
+
+export default function RecentlyPosted({latestBlogData}:any) {
   const [page, setPage] = useState(1);
   const PER_PAGE = 9;
   const DATA = usePagination(latestBlogData.articles, PER_PAGE);
-  const handleChange = (e:any, p:number) => {
+  const handleChange = (e:any,p:any) => {
     setPage(p);
     DATA.jump(p);
   };
@@ -19,7 +21,7 @@ export default function RecentlyPosted({ latestBlogData }:any) {
     <Box sx={{ width: { md: '62%', lg: '68%' }, paddingRight: { md: '5rem', sm: '0' } }}>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Recently" secondTitle="Posted" />
       <Box className="blogs">
-        {DATA.currentData().map((blog:any, i:number) => {
+        {DATA.currentData().map((blog:newsApiArticleProps, i:number) => {
           if (i === 2 && page === 1) {
             return (
               <Box key={blog.url}>

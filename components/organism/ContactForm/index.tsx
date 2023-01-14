@@ -12,7 +12,6 @@ export default function ContactForm() {
     e.preventDefault();
     toast("Message sent");
     setFormData({name:'',email:'',subject:'',message:''})
-    console.log(formData)
   }
   return (
     <>

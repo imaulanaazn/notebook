@@ -21,6 +21,17 @@ interface TabPanelProps {
   value: number;
 }
 
+interface blogData{
+    id: string;
+    label: string;
+    title: string;
+    profilePic: string;
+    name: string;
+    date: string;
+    timeToRead: number;
+    content: string;
+}
+
 function TabPanel(props: TabPanelProps) {
   const {
     children, value, index, ...other
@@ -383,7 +394,7 @@ export default function BlogContent() {
                 display: 'grid', gridTemplateColumns: { md: 'repeat(auto-fit, minmax(270px, .8fr))', xs: 'repeat(auto-fit, minmax(270px, 1fr))' }, marginTop: '2rem', gridGap: { md: '3rem 1.5rem', sm: '2.5rem 1.7rem', xs: '3rem' }, justifyContent: 'center',
               }}
             >
-              {data.slice(0, 2).map((blog:any, index:number) => (
+              {data.slice(0, 2).map((blog:blogData, index:number) => (
                 <Box
                   key={`blog${index}`}
                   className="featured-card1"

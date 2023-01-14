@@ -2,7 +2,17 @@ import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 import { authors } from '../../../dummyData';
 
-export default function ReadAuthorBlogs({ name, authorBlogs }:any) {
+import { newsApiArticleProps } from '../Featured';
+import { newsApiResponseProps } from '../Featured';
+
+interface ReadAuthorBlogsProps{
+  name:{
+    name:string
+  },
+  authorBlogs:newsApiResponseProps
+}
+
+export default function ReadAuthorBlogs({ name, authorBlogs }:ReadAuthorBlogsProps) {
   const authorData = authors.filter((author) => author.name === name.name);
   return (
     <Box sx={{ margin: { sm: '4rem 4rem', xs: '0 2rem' } }}>
@@ -28,7 +38,7 @@ export default function ReadAuthorBlogs({ name, authorBlogs }:any) {
           display: 'grid', gridTemplateColumns: { md: 'repeat(auto-fit, minmax(270px, .8fr))', xs: 'repeat(auto-fit, minmax(270px, 1fr))' }, marginTop: '2rem', gridGap: { md: '3rem 1.5rem', sm: '2.5rem 1.7rem', xs: '3rem' }, justifyContent: 'center',
         }}
       >
-        {authorBlogs.articles.slice(0, 5).map((blog:any, index:number) => (
+        {authorBlogs.articles.slice(0, 5).map((blog:newsApiArticleProps, index:number) => (
           <Box
             key={`blog${index}`}
             className="featured-card1"

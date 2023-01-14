@@ -82,7 +82,7 @@ export default function Navbar() {
   };
 
   const [currentLanguage, setCurrentLanguage] = useState('En');
-  const changeLanguage = (lang:string, event:any) => {
+  const changeLanguage = (lang:string, event:React.MouseEvent<HTMLLIElement, MouseEvent>) => {
     event.preventDefault();
     setCurrentLanguage(lang);
   };

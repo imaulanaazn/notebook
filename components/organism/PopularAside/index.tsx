@@ -5,7 +5,9 @@ import {
 import PopularPostedCard from '../../molecules/PopularPostedCard';
 import Title from '../../atoms/Title';
 
-export default function PopularAside({ popularBlogs }:any) {
+import { newsApiArticleProps } from '../Featured';
+
+export default function PopularAside({popularBlogs}:any) {
   const totalData = popularBlogs?.articles?.slice(0, 10).length;
   const dataPerPage:number = 2;
   const totalPage = Math.ceil(totalData / dataPerPage);
@@ -27,7 +29,7 @@ export default function PopularAside({ popularBlogs }:any) {
           id={`${i}`}
           className={`pagination-btn ${active === i ? 'active' : 'not-active'}`}
           // eslint-disable-next-line no-restricted-globals
-          onClick={() => { setActiveBtn(event); }}
+          onClick={(event) => { setActiveBtn(event); }}
           key={i}
         />,
       );
@@ -47,7 +49,7 @@ export default function PopularAside({ popularBlogs }:any) {
       >
         {
         popularBlogs?.articles?.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
-          .map((data:any, index:number) => (
+          .map((data:newsApiArticleProps, index:number) => (
             <PopularPostedCard
               key={`card${index}`}
               label={data.source.name}

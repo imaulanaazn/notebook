@@ -5,6 +5,19 @@ import {
 import AboutAuthorCard from '../../molecules/AboutAuthorCard';
 import { authors } from '../../../dummyData';
 
+interface authorProps{
+  name: string;
+    job: string;
+    fb: string;
+    twit: string;
+    insta: string;
+    profilePic: string;
+    totalPosts: number;
+    aboutAuthor: string;
+    authorQuote: string;
+    quoteDesc: string;
+}
+
 export default function MeetOurAuthor() {
   return (
     <Box sx={{ textAlign: 'center', padding: '5rem 0' }}>
@@ -28,7 +41,7 @@ export default function MeetOurAuthor() {
         display: 'grid', width: { sm: '70%', xs: '90%' }, margin: '0 auto 4rem', gridGap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(21rem,1fr))',
       }}
       >
-        {authors.map((author:any, index:number) => (
+        {authors.map((author:authorProps, index:number) => (
           <AboutAuthorCard
             key={`authorCard${index}`}
             name={author.name}

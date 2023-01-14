@@ -6,11 +6,24 @@ import Title from '../../atoms/Title';
 import { authors } from '../../../dummyData';
 import Image from 'next/image';
 
+interface authorData{
+  name: string,
+  job: string,
+  fb: string,
+  twit: string,
+  insta: string,
+  profilePic: string,
+  totalPosts: any,
+  aboutAuthor: string,
+  authorQuote: string,
+  quoteDesc: string,
+}
+
 export default function TopAuthor() {
   return (
     <Box>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Top" secondTitle="Authors" />
-      {authors.slice(0, 3).map((author:any, index:number) => (
+      {authors.slice(0, 3).map((author:authorData, index:number) => (
         <Stack key={`title${index}`} direction="row" sx={{ alignItems: 'center', marginBottom: '2.6rem' }}>
           <Link
             href={`/about/${author.name}`}

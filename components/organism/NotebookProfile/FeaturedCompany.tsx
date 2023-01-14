@@ -43,7 +43,7 @@ export default function Featured() {
           }}
           id={`${i}`}
           className={`pagination-btn ${active === i ? 'active' : 'not-active'}`}
-          onClick={() => { setActiveBtn(event); }}
+          onClick={(event) => { setActiveBtn(event); }}
           key={i}
         />,
       );
@@ -80,7 +80,7 @@ export default function Featured() {
       >
         {
         featuredCompanies.slice(dataPerPage * (active), dataPerPage * (active) + dataPerPage)
-          .map((imgUrl:any, index:number) => (
+          .map((imgUrl:string, index:number) => (
             <Box sx={{ flex: '1' }} key={`button${index}`}>
               <img className="featured-icon" src={imgUrl} alt="" />
             </Box>

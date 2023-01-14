@@ -2,7 +2,22 @@ import React from 'react';
 import { Typography, Box, Stack } from '@mui/material';
 import Title from '../../atoms/Title';
 
-export default function Featured({ featuredData }:any) {
+export interface newsApiArticleProps{
+  author:string
+  content: string
+  description: string
+  publishedAt: string
+  source: {id: string, name: string}
+  title: string
+  url: string
+  urlToImage:string
+}
+
+export interface newsApiResponseProps{
+  articles:newsApiArticleProps[]
+}
+
+export default function Featured({featuredData}:any) {
   return (
     <Box sx={{ width: { md: '62%', lg: '68%' } }} className="featured-container ">
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Featured" secondTitle="This Month" />
@@ -14,7 +29,7 @@ export default function Featured({ featuredData }:any) {
             display: 'grid', gridTemplateColumns: { md: 'repeat(auto-fit, minmax(270px, .8fr))', xs: 'repeat(auto-fit, minmax(270px, 1fr))' }, marginBottom: '5rem', gridGap: { lg:'3rem 1.5rem',md: '1.5rem', sm: '2.5rem 1.7rem', xs: '3rem' }, justifyContent: 'center',
           }}
         >
-          {featuredData?.articles?.slice(0, 13).map((blog:any, index:number) => (
+          {featuredData?.articles?.slice(0, 13).map((blog:newsApiArticleProps, index:number) => (
             <a href={blog.url} target="_blank" key={`featured${index}`} rel="noreferrer" >
               <Box
                 className="featured-card1"

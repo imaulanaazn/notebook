@@ -2,8 +2,27 @@ import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 import { authors } from '../../../dummyData';
 
-export default function AuthorProfile({ name }:any) {
-  const authorData:any[] = authors.filter((data) => data.name === name.name);
+interface authorData{
+      name: string,
+      job: string,
+      fb: string,
+      twit: string,
+      insta: string,
+      profilePic: string,
+      totalPosts: any,
+      aboutAuthor: string,
+      authorQuote: string,
+      quoteDesc: string,
+}
+
+interface AuthorProfileProps{
+  name:{
+    name:string
+  }
+}
+
+export default function AuthorProfile({ name }:AuthorProfileProps) {
+  const authorData:authorData[] = authors.filter((data) => data.name === name.name);
   return (
     <Stack
       direction="row"
