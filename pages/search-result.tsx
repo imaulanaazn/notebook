@@ -7,19 +7,28 @@ import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
 import Script from 'next/script';
 
 export default function SearchResult() {
-  const {searchedWord}:any = useSelector((state:string) => state.search)
+  const {searchedWord,searchedType}:any = useSelector((state:string) => state.search)
   const [cardData,setCardData]:any[] = useState('');
   const [isLoading,setIsloading] = useState(false)
   useEffect(() => {
       setIsloading(true);
       async function fetchData(){
-      const res = await fetch(`https://gnews.io/api/v4/search?q=${searchedWord}&token=${process.env.NEXT_PUBLIC_GNEWSAPI_KEY}&lang=en`)
+        let res:any = ''
+        if(searchedType === "word"){
+          res = await fetch(`https://gnews.io/api/v4/search?q=${searchedWord}&token=${process.env.NEXT_PUBLIC_GNEWSAPI_KEY}&lang=en`)
+        }else if(searchedType === "tag"){
+          const currentDate = new Date().toISOString();
+          res = await fetch(`https://gnews.io/api/v4/search?q=${searchedWord}&from=${currentDate.split('-')[0]+"-"+currentDate.split('-')[1]}-01&to=${currentDate}&sortBy=publishedAt&token=${process.env.NEXT_PUBLIC_GNEWSAPI_KEY}`)
+        }else if(searchedType === "category"){
+          res = await fetch(`https://gnews.io/api/v4/top-headlines?topic=${searchedWord}&token=${process.env.NEXT_PUBLIC_GNEWSAPI_KEY}`)
+        }
       const data = await res.json()
       setCardData(data);
       setIsloading(false);
     }
     fetchData();
-  }, [searchedWord])
+  }, [searchedType])
+  console.log(cardData)
 
   return (
     <>
@@ -31,9 +40,11 @@ export default function SearchResult() {
             fontSize: '1rem', color: '#777777', borderBottom: '3px solid #00AAA1', display: 'inline-block', position: 'relative', zIndex: '10',
           }}
           >
-            search result for
+            {searchedType === "word" ? "search " : ""}
+            result for
             {' '}
             <Typography variant="caption" sx={{ fontWeight: '500', color: '#222222', fontSize: '1rem' }}>{searchedWord}</Typography>
+            {searchedType === "tag" ? " tag" : searchedType === "category" ? " category " : ""}
           </Typography>
           <Box sx={{
             width: '100%', height: '1px', backgroundColor: '#C4C4C4', transform: 'translateY(-2px)',
@@ -50,7 +61,7 @@ export default function SearchResult() {
               title={blog.title}
               name={blog.source.name}
               date={new Date(blog.publishedAt).toLocaleDateString()}
-              imgUrl={blog.image}
+              imgUrl={blog.image || blog.urlToImage}
               url={blog.url}
               desc={blog.description}
               timeToRead={Math.round(blog.content.split(" ").length / 4)}

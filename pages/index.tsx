@@ -12,27 +12,9 @@ import Categories from '../components/organism/Categories/Categories';
 import InstagramPosts from '../components/organism/InstagramPosts/InstagramPosts';
 import SearchWithTags from '../components/organism/SearchWIthTags/SearchWithTags';
 import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
-import { useState,useEffect } from 'react';
 import Script from 'next/script';
 
 export default function Home( {featuredData, latestBlogData, popularBlogs} : any ) {
-  const [searchedTag,setSearchedTag] = useState(null);
-  const [dataByTag, setDataByTag]:any = useState(null);
-  useEffect(() => {
-    const currentDate = new Date().toISOString();
-    async function fetchBlogByTag(){
-      await fetch(`https://newsapi.org/v2/everything?q=${searchedTag}&from=${currentDate.split('-')[0]+"-"+currentDate.split('-')[1]}-01&to=${currentDate}&sortBy=publishedAt&pageSize=27&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
-      .then(blogsByTag => blogsByTag.json()
-      .then(data => setDataByTag(data))
-      )
-      .catch(err => console.log(err))
-    }
-    if(searchedTag){
-      fetchBlogByTag()
-    }
-  }, [searchedTag])
-  console.log(latestBlogData)
-  
   return(
   <>
     <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>
@@ -48,14 +30,14 @@ export default function Home( {featuredData, latestBlogData, popularBlogs} : any
         <PopularAside popularBlogs={popularBlogs} />
       </Box>
       <Box className="main-content" sx={{ display: 'flex', padding: { md: '6rem  3rem  ', sm: '5.5rem  3rem', xs: '3rem 1.5rem' }, flexDirection: { md: 'row', xs: 'column' } }}>
-        <RecentlyPosted latestBlogData={dataByTag ? dataByTag : latestBlogData} />
+        <RecentlyPosted latestBlogData={latestBlogData} />
         <Box sx={{ width: { lg: '32%', md: '38%' } }}>
           <TopAuthor />
           <Ads />
           <Categories />
           <TodaysUpdate />
           <InstagramPosts />
-          <SearchWithTags setSearchedTag={setSearchedTag}/>
+          <SearchWithTags/>
         </Box>
       </Box>
     </main>

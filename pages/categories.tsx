@@ -23,13 +23,14 @@ export default function Categories() {
           display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center',
         }}
         >
-          <CategoriesCard title="Environment & Nature" iconClass="fa-brands fa-pagelines" />
-          <CategoriesCard title="Technology" iconClass="fa-solid fa-microchip" />
-          <CategoriesCard title="Lifestyle & Fashion" iconClass="fa-solid fa-vest" />
-          <CategoriesCard title="Photography" iconClass="fa-solid fa-camera-retro" />
-          <CategoriesCard title="Food" iconClass="fa-solid fa-plate-wheat" />
-          <CategoriesCard title="Holiday & Travel" iconClass="fa-solid fa-plane" />
-          <CategoriesCard title="Healthcare<" iconClass="fa-solid fa-heart-pulse " />
+          <CategoriesCard title="breaking news" iconClass="fa-brands fa-pagelines" topic="breaking-news"/>
+          <CategoriesCard title="science" iconClass="fa-solid fa-microchip" topic="science"/>
+          <CategoriesCard title="world" iconClass="fa-solid fa-vest" topic="world"/>
+          <CategoriesCard title="business" iconClass="fa-solid fa-camera-retro" topic="business"/>
+          <CategoriesCard title="technology" iconClass="fa-solid fa-plate-wheat" topic="technology"/>
+          <CategoriesCard title="entertainment" iconClass="fa-solid fa-plane" topic="entertainment"/>
+          <CategoriesCard title="sports" iconClass="fa-solid fa-heart-pulse " topic="sports"/>
+          <CategoriesCard title="health" iconClass="fa-solid fa-heart-pulse " topic="health"/>
         </Box>
       </Box>
       <Footer />

@@ -17,7 +17,7 @@ import InputBase from '@mui/material/InputBase';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import {useDispatch} from 'react-redux';
-import {setSearchedWord} from '../../../redux/slices/searchSlice'; 
+import {setSearchedType} from '../../../redux/slices/searchSlice'; 
 
 type Anchor = 'left';
 
@@ -74,12 +74,11 @@ const theme = createTheme({
 
 export default function Navbar() {
   const dispatch = useDispatch();
-  const [searchTempVal,setSearchTempVal] = useState('');
+  const [searchedValue,setSearchedValue] = useState('');
   const router = useRouter()
   const setSearchValue = (event:React.SyntheticEvent) => {
     router.pathname === '/search-result' ? event.preventDefault() : null;
-    const searchvalue = searchTempVal;
-    dispatch(setSearchedWord({searchValue : searchvalue}))
+    dispatch(setSearchedType({searchedType : 'word',searchedWord: searchedValue}))
   };
 
   const [currentLanguage, setCurrentLanguage] = useState('En');
@@ -240,7 +239,7 @@ export default function Navbar() {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
-                onChange={(event)=>setSearchTempVal(event.target.value)}
+                onChange={(event)=>setSearchedValue(event.target.value)}
                 onKeyDown={(event)=>{event.key === "Enter"? setSearchValue(event) : null; event.key === "Enter"? router.push('/search-result') : null}}
                 sx={{color:'lightslategray'}}
               />
