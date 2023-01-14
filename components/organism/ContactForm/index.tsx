@@ -16,7 +16,7 @@ export default function ContactForm() {
   return (
     <>
     <ToastContainer />
-    <Box component="form" sx={{ flex: '1' }} onSubmit={(e)=>{submitForm(e)}}>
+    <Box component="form" sx={{ flex: '1' }} onSubmit={(e:any)=>{submitForm(e)}}>
       <Stack direction="row" sx={{ gap: '1rem' }}>
         <TextField
           className="contact-input"
@@ -27,7 +27,7 @@ export default function ContactForm() {
           label="Name"
           variant="outlined"
           value={formData.name}
-          onChange={(e)=>{setFormData({...formData,name:e.target.value})}}
+          onChange={(e:any)=>{setFormData({...formData,name:e.target.value})}}
           />
         <TextField
           className="contact-input"
@@ -38,7 +38,7 @@ export default function ContactForm() {
           label="Email"
           variant="outlined"
           value={formData.email}
-          onChange={(e)=>{setFormData({...formData,email:e.target.value})}}
+          onChange={(e:any)=>{setFormData({...formData,email:e.target.value})}}
           />
       </Stack>
       <TextField
@@ -50,7 +50,7 @@ export default function ContactForm() {
         label="Subject"
         variant="outlined"
         value={formData.subject}
-        onChange={(e)=>{setFormData({...formData,subject:e.target.value})}}
+        onChange={(e:any)=>{setFormData({...formData,subject:e.target.value})}}
         />
       <TextField
         className="contact-input"
@@ -58,7 +58,7 @@ export default function ContactForm() {
         label="Type your message"
         multiline
         value={formData.message}
-        onChange={(e)=>{setFormData({...formData,message:e.target.value})}}
+        onChange={(e:any)=>{setFormData({...formData,message:e.target.value})}}
         rows={7}
         sx={{ width: '100%', label: { color: '#999999' } }}
       />
@@ -72,7 +72,6 @@ export default function ContactForm() {
       >
         Send message
       </Button>
-
     </Box>
     </>
   );
