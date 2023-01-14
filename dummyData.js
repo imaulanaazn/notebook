@@ -351,6 +351,6 @@ const authors = [
   },
 ];
 
-const featuredCompanies = ['img/grammarly.png', 'img/medium.png', 'img/unsplash.png', 'img/wordpress.png', 'img/blogger.png', 'img/medium.png', 'img/grammarly.png', 'img/wordpress.png', 'img/unsplash.png', 'img/blogger.png', 'img/blogger.png', 'img/medium.png', 'img/grammarly.png', 'img/grammarly.png', 'img/wordpress.png'];
+const featuredCompanies = ['img/grammarly.png', 'img/medium.png', 'img/unsplash.png', 'img/wordpress.png', 'img/blogger.png', 'img/medium.png', 'img/grammarly.png', 'img/wordpress.png', 'img/unsplash.png', 'img/grammarly.png'];
 export { authors, featuredCompanies };
 export default blogs;

@@ -12,16 +12,17 @@ export default function TopAuthor() {
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Top" secondTitle="Authors" />
       {authors.slice(0, 3).map((author:any, index:number) => (
         <Stack key={`title${index}`} direction="row" sx={{ alignItems: 'center', marginBottom: '2.6rem' }}>
-          <Box
+          <Link
+            href={`/about/${author.name}`}
             className="profile-pic"
             sx={{
-              width: '4.6rem', minWidth: '4.6rem', height: '4.5rem', borderRadius: '50%', backgroundColor: '#D9D9D9', overflow: 'hidden', '&:hover':{cursor:'pointer'}
+              width: '4.6rem', minWidth: '4.6rem', height: '4.5rem', borderRadius: '50%', backgroundColor: '#D9D9D9', overflow: 'hidden'
             }}
           >
             <Box style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative' }}>
             <Image src={author.profilePic} alt=""  width={300} height={300} objectFit="cover" quality={1}/>
             </Box>
-          </Box>
+          </Link>
           <Box className="autor-info" sx={{ marginLeft: '1.5rem' }}>
             <Typography variant="h5" sx={{ fontSize: '1rem', fontWeight: '500' }}>
               {author.name}

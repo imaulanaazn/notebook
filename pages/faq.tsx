@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Box, Typography, Accordion, Button,
+  Box, Typography, Accordion, Link,
 } from '@mui/material';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -142,15 +142,15 @@ export default function faq() {
         <Typography sx={{ fontSize: '1.3rem', fontWeight: '500', margin: '3rem 0 1rem' }}>
           Can&apos;t find an answer to your question?
         </Typography>
-        <Button
-          variant="outlined"
-          disableElevation
+        <Link
+          href="/contact"
+          underline="none"
           sx={{
-            borderColor: '#00AAA1', color: '#00AAA1', fontSize: '0.84rem', fontWeight: '400', textTransform: 'capitalize', borderWidth: '1.3px',
+            borderColor: '#00AAA1', color: '#00AAA1', fontSize: '0.9rem', fontWeight: '400', textTransform: 'capitalize', borderWidth: '1.3px',
           }}
         >
           Contact us
-        </Button>
+        </Link>
       </Box>
       <Footer />
     </>

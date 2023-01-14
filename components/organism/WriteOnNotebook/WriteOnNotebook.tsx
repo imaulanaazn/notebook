@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 
 export default function WriteOnNotebook() {
   return (
@@ -42,14 +42,16 @@ export default function WriteOnNotebook() {
         Send it on:
         <Typography variant="caption" sx={{ fontSize: { sm: '1.1rem', xs: '1rem' }, color: '#222222', fontWeight: '500' }}>blog.notebook@gmail.com</Typography>
       </Typography>
-      <Button
-        variant="outlined"
+      <Link
+      target="_blank"
+      href="https://mail.google.com/mail/?view=cm&fs=1&to=blog.notebook@gmail.com&bcc=blog.notebook@gmail.com"
+        underline='none'
         sx={{
-          color: '#00AAA1', borderColor: '#00AAA1', textTransform: 'capitalize', padding: { sm: '.4rem 1rem', xs: '.3rem .6rem' }, fontWeight: '400', fontSize: { sm: '1.15rem', xs: '1.1rem' }, borderWidth: '1.5px', borderRadius: '6px',
+          color: '#00AAA1', border: '2px solid #00AAA1', textTransform: 'capitalize', padding: { sm: '.4rem 1rem', xs: '.3rem .6rem' }, fontWeight: '400', fontSize: { sm: '1.15rem', xs: '1.1rem' },borderRadius: '6px',
         }}
       >
         Go To Your Mail
-      </Button>
+      </Link>
     </Box>
   );
 }

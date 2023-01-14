@@ -3,11 +3,20 @@ import {
   Box, Stack, Typography, Button,
 } from '@mui/material';
 import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 
 export default function Footer() {
+  const [email,setEmail] = useState('')
+  function subscribe(){
+    toast("Subscribtion success");
+    setEmail('')
+  }
   return (
     // BLOG FOOTER DESCRIPTION
     <>
+    <ToastContainer/>
     <Box sx={{
       padding: { md: '7rem  3rem  ', sm: '5.5rem  3rem', xs: '3rem 1.5rem' }, backgroundColor: '#F2F8F7', display: 'grid', gridRowGap: { sm: '4rem', xs: '2rem' }, gridTemplateColumns: 'repeat(auto-fit, minmax(14rem, 1fr))', textAlign: { md: 'left', sm: 'center' },
     }}
@@ -91,9 +100,11 @@ export default function Footer() {
         >
           Subscribe for newsletter
         </Typography>
+        <form onSubmit={()=>{subscribe()}}>
         <Stack direction="row">
-          <input type="email" placeholder="Your Email" className="subscribe-field" />
+          <input type="email" required placeholder="Your Email" className="subscribe-field" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
           <Button
+            type='submit'
             variant="contained"
             disableElevation
             sx={{
@@ -103,6 +114,7 @@ export default function Footer() {
             Subscribe
           </Button>
         </Stack>
+        </form>
         <Typography
           variant="h1"
           sx={{

@@ -146,17 +146,6 @@ export default function Navbar() {
               />
               </Link>
             </ListItemButton>
-            <ListItemButton
-              onClick={toggleDrawer(anchor, false)}
-              onKeyDown={toggleDrawer(anchor, false)}
-            >
-              <Link href='/#'>
-              <ListItemText
-                primaryTypographyProps={{ fontSize: { sm: '1.5rem', xs: '1rem' } }}
-                primary="Pages"
-              />
-              </Link>
-            </ListItemButton>
           </div>
         </ListItem>
       </List>
@@ -180,7 +169,6 @@ export default function Navbar() {
             <Link href="/"><Typography sx={{ color: '#333333', marginRight: '1rem', fontSize: '0.938rem', '&:hover':{cursor:'pointer'} }}>HomePage</Typography></Link>
             <Link href="/categories" ><Typography sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem','&:hover':{cursor:'pointer'} }}>Categories</Typography></Link>
             <Link href="/about"><Typography sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem','&:hover':{cursor:'pointer'} }}>About</Typography></Link>
-            <Link href="/#"><Typography sx={{ color: '#333333', margin: { md: '0 1rem', sm: '0 1.7rem' }, fontSize: '0.938rem','&:hover':{cursor:'pointer'} }}>Pages</Typography></Link>
           </Box>
 
           <Link href="/">

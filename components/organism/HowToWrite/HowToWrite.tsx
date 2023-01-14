@@ -54,8 +54,8 @@ export default function HowToWrite() {
         </Box>
       </Stack>
       <Typography variant="h2" sx={{ fontSize: '1.3rem', fontWeight: '500', marginBottom: '1.5rem' }}>Want To Know More?</Typography>
-      <Link href="/write" underline="none" sx={{ color: '#00AAA1', fontSize: '0.938rem' }}>
-        Go to FEQ page
+      <Link href="/faq" underline="none" sx={{ color: '#00AAA1', fontSize: '0.938rem' }}>
+        Go to FAQ page
         {' '}
         <i className="fa-solid fa-arrow-right-long" />
       </Link>
