@@ -21,7 +21,7 @@ export default function Home( {featuredData, latestBlogData, popularBlogs} : any
   useEffect(() => {
     const currentDate = new Date().toISOString();
     async function fetchBlogByTag(){
-      await fetch(`https://newsapi.org/v2/everything?q=${searchedTag}&from=${currentDate.split('-')[0]+"-"+currentDate.split('-')[1]}-01&to=${currentDate}&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
+      await fetch(`https://newsapi.org/v2/everything?q=${searchedTag}&from=${currentDate.split('-')[0]+"-"+currentDate.split('-')[1]}-01&to=${currentDate}&sortBy=publishedAt&pageSize=27&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`)
       .then(blogsByTag => blogsByTag.json()
       .then(data => setDataByTag(data))
       )
@@ -31,6 +31,7 @@ export default function Home( {featuredData, latestBlogData, popularBlogs} : any
       fetchBlogByTag()
     }
   }, [searchedTag])
+  console.log(latestBlogData)
   
   return(
   <>
@@ -47,7 +48,7 @@ export default function Home( {featuredData, latestBlogData, popularBlogs} : any
         <PopularAside popularBlogs={popularBlogs} />
       </Box>
       <Box className="main-content" sx={{ display: 'flex', padding: { md: '6rem  3rem  ', sm: '5.5rem  3rem', xs: '3rem 1.5rem' }, flexDirection: { md: 'row', xs: 'column' } }}>
-        <RecentlyPosted latestBlogData={ dataByTag ? dataByTag : latestBlogData} />
+        <RecentlyPosted latestBlogData={dataByTag ? dataByTag : latestBlogData} />
         <Box sx={{ width: { lg: '32%', md: '38%' } }}>
           <TopAuthor />
           <Ads />
@@ -65,9 +66,9 @@ export async function getServerSideProps() {
   const currentDate = new Date().toISOString();
   // Fetch data from external API
   const [featuredRes, latestBlogRes, popularBlogRes] = await Promise.all([
-    fetch(`https://newsapi.org/v2/everything?q=featured&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
-    fetch(`https://newsapi.org/v2/everything?q=recently-posted&from=${currentDate.split('-')[0]+"-"+currentDate.split('-')[1]}-01&to=${currentDate}&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
-    fetch(`https://newsapi.org/v2/everything?q=recently-posted&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+    fetch(`https://newsapi.org/v2/everything?q=featured&pageSize=27&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+    fetch(`https://newsapi.org/v2/everything?q=recently-posted&from=${currentDate.split('-')[0]+"-"+currentDate.split('-')[1]}-01&to=${currentDate}&sortBy=publishedAt&pageSize=27&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
+    fetch(`https://newsapi.org/v2/everything?q=recently-posted&sortBy=popularity&pageSize=27&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI_KEY}`),
   ]);
   const [featuredData, latestBlogData, popularBlogs] = await Promise.all([
     featuredRes.json(),
