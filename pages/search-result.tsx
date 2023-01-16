@@ -48,7 +48,7 @@ export default function SearchResult() {
       setIsloading(false);
     }
     fetchData();
-  }, [searchedType])
+  }, [searchedWord])
 
   return (
     <>
