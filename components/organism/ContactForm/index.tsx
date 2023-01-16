@@ -20,6 +20,7 @@ export default function ContactForm() {
       <Stack direction="row" sx={{ gap: '1rem' }}>
         <TextField
           className="contact-input"
+          required
           sx={{
             flex: '1', fontSize: '0.938rem', label: { color: '#999999' },
           }}
@@ -31,6 +32,7 @@ export default function ContactForm() {
           />
         <TextField
           className="contact-input"
+          required
           sx={{
             flex: '1', fontSize: '0.938rem', label: { color: '#999999' },
           }}
@@ -54,6 +56,7 @@ export default function ContactForm() {
         />
       <TextField
         className="contact-input"
+        required
         id="outlined-multiline-static"
         label="Type your message"
         multiline
