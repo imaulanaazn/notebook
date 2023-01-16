@@ -22,7 +22,7 @@ export default function Featured({featuredData}:any) {
     <Box sx={{ width: { md: '62%', lg: '68%' } }} className="featured-container ">
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Featured" secondTitle="This Month" />
 
-      <Box className="scrollbar" sx={{ overflowY: { md: 'scroll' }, height: { md: '85%' }, paddingRight: { md: '2rem' } }}>
+      <Box className="scrollbar" sx={{ overflowY: { md: 'scroll' },overflowX:'hidden', height: { md: '85%' }, paddingRight: { md: '2rem' } }}>
         <Box
           className="featured-card"
           sx={{

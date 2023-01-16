@@ -15,6 +15,7 @@ import TodaysUpdate from '../components/organism/TodaysUpdate/TodaysUpdate';
 import Script from 'next/script';
 
 export default function Home( {featuredData, latestBlogData, popularBlogs} : any ) {
+  console.log(latestBlogData)
   return(
   <>
     <Script async src="https://kit.fontawesome.com/490a850dc0.js" crossOrigin="anonymous"></Script>

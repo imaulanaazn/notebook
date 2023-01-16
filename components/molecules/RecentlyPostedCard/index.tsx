@@ -74,7 +74,7 @@ export default function RecentlyPostedCard(param:RecentlyPostedCardProps) {
           color: '#555555', fontSize: '0.84rem', fontWeight: '400', marginTop: '1.188rem',
         }}
         >
-          {desc.length > 100 ? desc.slice(0,150) + '...' : desc}
+          {desc?.length > 100 ? desc.slice(0,150) + '...' : desc}
         </Typography>
       </Box>
     </Box>

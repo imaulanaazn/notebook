@@ -6,14 +6,22 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
+import { setSearchedType } from '../../../redux/slices/searchSlice';
+import { useDispatch } from 'react-redux';
 
 export default function Footer() {
+  const dispatch = useDispatch()
   const [email,setEmail] = useState('')
   function subscribe(e:React.FormEvent<HTMLFormElement>){
     e.preventDefault();
     toast("Subscribtion success");
     setEmail('')
   }
+
+  function searchBlogByCategory(topic:string){
+    dispatch(setSearchedType({searchedType: 'category',searchedWord:topic}))
+  }
+
   return (
     // BLOG FOOTER DESCRIPTION
     <>
@@ -67,11 +75,30 @@ export default function Footer() {
           >
             Blogs
           </Typography>
-          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Travel</Typography></Link>
-          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Technology</Typography></Link>
-          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Lifestyle</Typography></Link>
-          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Fashion</Typography></Link>
-          <Link href="#navbar"><Typography sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Bussines</Typography></Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('breaking-news')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Breaking news</Typography>
+          </Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('science')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Science</Typography>
+          </Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('world')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>World</Typography>
+          </Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('business')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Business</Typography>
+          </Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('technology')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Technology</Typography>
+          </Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('entertainment')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Entertainment</Typography>
+          </Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('sports')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Sports</Typography>
+          </Link>
+          <Link href="/search-result">
+            <Typography onClick={()=>{searchBlogByCategory('health')}} sx={{ '&:hover':{cursor:'pointer'},fontSize: '.84rem', color: '#555555', margin: '.2rem 0' }}>Health</Typography>
+          </Link>
         </Stack>
       </Stack>
       {/* QUICK LINKS */}
