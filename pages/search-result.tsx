@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Box, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
 import Navbar from '../components/organism/Navbar';
 import Footer from '../components/organism/Footer';
-import { useSelector } from 'react-redux';
 import RecentlyPostedCard from '../components/molecules/RecentlyPostedCard';
 import Script from 'next/script';
 
@@ -17,14 +17,11 @@ interface gnewsApiArticleProps {
   image:string
 }
 
-// interface gnewsApiResponseProps{
-//   articles: gnewsApiArticleProps[]
-// }
-
 export default function SearchResult() {
   const {searchedWord,searchedType}:any = useSelector((state:string) => state.search)
   const [cardData,setCardData]:any[] = useState('');
   const [isLoading,setIsloading] = useState(false)
+  
   useEffect(() => {
       setIsloading(true);
       async function fetchData(){

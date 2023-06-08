@@ -1,4 +1,4 @@
-ul.categories-list{
+ul.languages-list{
     background-color: #E8F3F3;
     position: absolute;
     text-align: center;
@@ -9,16 +9,16 @@ ul.categories-list{
     overflow: hidden;
     box-shadow: 0px 2px 24px 0px rgba(220, 228, 228, 0.75);
 }
-/* ul.categories-list li.categories-item{
+/* ul.languages-list li.languages-item{
     list-style: none;
     padding: 10px 0;
     background-color: white;
     font-size: 0.9rem;
 } */
-ul.categories-list li.categories-item:hover{
+ul.languages-list li.languages-item:hover{
     background-color: #E8F3F3;
 }
-div.categories-container:hover .categories-list{
+div.languages-container:hover .languages-list{
     height: auto;
 }
 .dropdown-icon{
@@ -26,7 +26,7 @@ div.categories-container:hover .categories-list{
     transform: scale(1.05);
     transition: .4s ease all;
 }
-div.categories-container:hover .dropdown-icon{
+div.languages-container:hover .dropdown-icon{
     transform: rotate(180deg);
 }
 .search-icon:hover{
