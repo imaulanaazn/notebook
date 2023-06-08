@@ -270,11 +270,11 @@ export default function Navbar() {
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={(event)=>setSearchedValue(event.target.value)}
                 onKeyDown={(event)=>{event.key === "Enter"? setSearchValue(event) : null; event.key === "Enter"? router.push('/search-result') : null}}
-                sx={{color:'lightslategray'}}
+                sx={{color:'lightslategray', height: "2.3rem"}}
               />
               <Link href="/search-result">
                 <Box sx={{ margin: { md: '0 1rem', sm: '0 1.3rem', xs: '.3rem .6rem' } }} onClick={(event) => { setSearchValue(event); }}>
-                  <img className="search-icon" src="/icon/search.svg" alt="" />
+                  <img className="search-icon" src="/icon/search.svg" alt="search-icon" />
                 </Box>
               </Link>
             </Search>

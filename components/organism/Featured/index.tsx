@@ -20,7 +20,7 @@ export interface newsApiResponseProps{
 export default function Featured({featuredData}:any) {
   return (
     <Box sx={{ width: { md: '62%', lg: '68%' } }} className="featured-container ">
-      <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Featured" secondTitle="This Month" />
+      <Title marginBottom={{ sm: '3.4rem', xs: '1.8rem' }} mainTitle="Featured" secondTitle="This Month" />
 
       <Box className="scrollbar" sx={{ 
         overflowY: { md: 'scroll' },

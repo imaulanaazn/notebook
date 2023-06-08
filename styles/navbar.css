@@ -37,8 +37,8 @@ div.languages-container:hover .dropdown-icon{
     width: 0.7rem;
 }
 
-.search-icon,.edit-icon{
-    width: 0.9rem;
+.search-icon, .edit-icon{
+    width: 1.1rem;
 }
 
 @media screen and (max-width:1200px) {
@@ -68,6 +68,6 @@ div.languages-container:hover .dropdown-icon{
         margin-left: .3rem;
     }
     .search-icon,.edit-icon{
-        width: 1rem;
+        width: 1.1rem;
     }
 }
