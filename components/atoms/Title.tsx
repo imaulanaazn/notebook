@@ -10,16 +10,16 @@ interface TitleProps{
 export default function Title(props:TitleProps) {
   const { marginBottom, mainTitle, secondTitle } = props;
   return (
-    <Typography
-      variant="h1"
-      sx={{
-        fontSize: { md: '1.313rem', sm: '1.5rem', xs: '1.3rem' }, fontWeight: '600', marginBottom: { ...marginBottom },
+    <Typography variant="h1" sx={{
+        fontSize: { md: '1.313rem', sm: '1.5rem', xs: '1.4rem' }, 
+        fontWeight: '600', 
+        marginBottom: { ...marginBottom },
       }}
     >
-      <Typography
-        variant="caption"
-        sx={{
-          fontSize: { md: '1.313rem', sm: '1.5rem', xs: '1.3rem' }, fontWeight: '600', marginRight: '.4rem', backgroundColor: '#00AAA1', color: 'white',
+      <Typography variant="caption" sx={{
+          fontSize: { md: '1.313rem', sm: '1.5rem', xs: '1.4rem' }, 
+          fontWeight: '600', marginRight: '.4rem', 
+          backgroundColor: '#00AAA1', color: 'white',
         }}
       >
         {mainTitle}
