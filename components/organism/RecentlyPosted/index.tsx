@@ -17,11 +17,17 @@ export default function RecentlyPosted({latestBlogData}:any) {
     setPage(p);
     DATA.jump(p);
   };
+  console.log(DATA)
   return (
     <Box sx={{ width: { md: '62%', lg: '68%' }, paddingRight: { md: '5rem', sm: '0' } }}>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Recently" secondTitle="Posted" />
       <Box className="blogs">
-        {DATA.currentData().map((blog:newsApiArticleProps, i:number) => {
+        {DATA.currentData.length === 0 ? 
+          <div>
+            Cannot retrive blogs
+          </div>
+          :
+          DATA.currentData().map((blog:newsApiArticleProps, i:number) => {
           if (i === 2 && page === 1) {
             return (
               <Box key={blog.url}>
@@ -71,7 +77,8 @@ export default function RecentlyPosted({latestBlogData}:any) {
               timeToRead={Math.round(blog.content.split(" ").length / 4)}
             />
           );
-        })}
+          })
+        }
       </Box>
       <Pagination
         count={3}
