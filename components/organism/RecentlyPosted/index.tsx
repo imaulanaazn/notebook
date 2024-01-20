@@ -17,12 +17,11 @@ export default function RecentlyPosted({latestBlogData}:any) {
     setPage(p);
     DATA.jump(p);
   };
-  console.log(DATA)
   return (
     <Box sx={{ width: { md: '62%', lg: '68%' }, paddingRight: { md: '5rem', sm: '0' } }}>
       <Title marginBottom={{ sm: '3.4rem', xs: '1.6rem' }} mainTitle="Recently" secondTitle="Posted" />
       <Box className="blogs">
-        {DATA.currentData.length === 0 ? 
+        {DATA.currentData().length === 0 ? 
           <div>
             Cannot retrive blogs
           </div>
